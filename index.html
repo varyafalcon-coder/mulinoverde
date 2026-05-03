@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mulino Verde – Bagni di Lucca | Casa Vacanze & Spazio Eventi</title>
+  <meta name="description" content="Mulino Verde è un antico mulino del 1798 immerso nella natura di Bagni di Lucca, Toscana. Tre appartamenti indipendenti, una forgia storica per eventi, yoga e cerimonie. Casa vacanze e spazio eventi." />
+  <meta name="keywords" content="mulino verde, bagni di lucca, casa vacanze toscana, affitto appartamento lucca, spazio eventi toscana, yoga retreat toscana, rafting lucca, forgia storica, agriturismo lucca" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --forest: #1a2418;
+      --moss: #2d3d28;
+      --sage: #5a7052;
+      --stone: #8c7b6b;
+      --cream: #f2ede6;
+      --warm: #e8dfd0;
+      --gold: #b8945a;
+      --water: #3d5c5a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--forest);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 3rem;
+      background: linear-gradient(to bottom, rgba(26,36,24,0.95), transparent);
+    }
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem; letter-spacing: 0.3em; color: var(--cream);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--warm); text-decoration: none;
+      font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .lang-switch {
+      font-size: 0.75rem; letter-spacing: 0.1em; cursor: pointer;
+      color: var(--gold); border: 1px solid var(--gold);
+      padding: 0.3rem 0.8rem; background: none;
+      font-family: 'Jost', sans-serif; transition: all 0.3s;
+    }
+    .lang-switch:hover { background: var(--gold); color: var(--forest); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 3rem 5rem;
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, #0e1810 0%, #1a2e1a 40%, #2d3d20 100%);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 40%, rgba(90,112,82,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(61,92,90,0.12) 0%, transparent 50%);
+    }
+    .hero-year {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(8rem, 20vw, 18rem);
+      color: rgba(255,255,255,0.04);
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap; letter-spacing: 0.05em;
+      pointer-events: none; user-select: none;
+    }
+    .hero-content { position: relative; max-width: 700px; }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 1s 0.3s forwards;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 300; line-height: 0.95;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 1s 0.5s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--sage); }
+    .hero-sub {
+      font-size: 1rem; line-height: 1.8; color: rgba(242,237,230,0.7);
+      max-width: 480px; margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 1s 0.7s forwards;
+    }
+    .hero-ctas {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 1s 0.9s forwards;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--forest);
+      padding: 0.9rem 2.2rem; text-decoration: none;
+      font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+      font-family: 'Jost', sans-serif; transition: all 0.3s;
+    }
+    .btn-primary:hover { background: var(--cream); }
+    .btn-outline {
+      border: 1px solid rgba(242,237,230,0.4); color: var(--cream);
+      padding: 0.9rem 2.2rem; text-decoration: none;
+      font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+      font-family: 'Jost', sans-serif; transition: all 0.3s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-scroll {
+      position: absolute; bottom: 2rem; right: 3rem;
+      font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(242,237,230,0.4); writing-mode: vertical-rl;
+      opacity: 0; animation: fadeUp 1s 1.2s forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTION BASE */
+    section { padding: 6rem 3rem; }
+    .section-label {
+      font-size: 0.68rem; letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem; display: block;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem;
+    }
+    .section-body {
+      font-size: 1rem; line-height: 1.9;
+      color: rgba(242,237,230,0.72); max-width: 600px;
+    }
+
+    /* INTRO */
+    .intro {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: center; background: var(--moss);
+      padding: 7rem 3rem;
+    }
+    .intro-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+    .stat { border-top: 1px solid rgba(242,237,230,0.15); padding-top: 1.2rem; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .stat-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(242,237,230,0.5); margin-top: 0.3rem; }
+    .intro-visual {
+      position: relative; aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--sage) 0%, var(--water) 100%);
+      overflow: hidden;
+    }
+    .intro-visual-inner {
+      position: absolute; inset: 1.5rem;
+      border: 1px solid rgba(242,237,230,0.15);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .intro-visual-text {
+      font-family: 'Cinzel', serif; font-size: 4rem;
+      color: rgba(255,255,255,0.08); text-align: center; line-height: 1.2;
+    }
+    .intro-badge {
+      position: absolute; bottom: 2rem; right: -1.5rem;
+      background: var(--gold); color: var(--forest);
+      padding: 1rem 1.5rem; font-size: 0.7rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      font-family: 'Jost', sans-serif;
+    }
+
+    /* APARTMENTS */
+    .apartments { background: var(--forest); }
+    .apt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin-top: 4rem; }
+    .apt-card {
+      background: var(--moss); padding: 2.5rem 2rem;
+      position: relative; overflow: hidden;
+      transition: background 0.4s;
+      cursor: default;
+    }
+    .apt-card::before {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--gold); transform: scaleX(0);
+      transition: transform 0.4s; transform-origin: left;
+    }
+    .apt-card:hover { background: #2a3a25; }
+    .apt-card:hover::before { transform: scaleX(1); }
+    .apt-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem; font-weight: 300;
+      color: rgba(242,237,230,0.06); line-height: 1;
+      position: absolute; top: 1rem; right: 1.5rem;
+    }
+    .apt-size {
+      font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.8rem;
+    }
+    .apt-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 300; margin-bottom: 1.5rem;
+    }
+    .apt-specs { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+    .apt-spec { font-size: 0.82rem; color: rgba(242,237,230,0.65); display: flex; gap: 0.6rem; align-items: center; }
+    .apt-spec::before { content: '—'; color: var(--sage); flex-shrink: 0; }
+    .apt-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300; color: var(--gold);
+    }
+    .apt-price span { font-size: 0.75rem; font-family: 'Jost', sans-serif; color: rgba(242,237,230,0.5); }
+    .apt-full {
+      grid-column: 1 / -1; background: var(--water);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      padding: 2.5rem 2rem; align-items: center;
+    }
+    .apt-full .apt-name { font-size: 2.2rem; }
+
+    /* FORGE */
+    .forge {
+      background: #0e1810;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 80vh;
+    }
+    .forge-visual {
+      background: linear-gradient(135deg, #1a1008 0%, #2d1a08 50%, #1a0e04 100%);
+      position: relative; display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .forge-glow {
+      position: absolute; width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(184,148,90,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .forge-icon {
+      font-family: 'Cinzel', serif; font-size: 7rem;
+      color: rgba(184,148,90,0.12); position: relative; z-index: 1;
+    }
+    .forge-content { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+    .forge-events { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; }
+    .forge-event {
+      padding: 1.2rem; border: 1px solid rgba(242,237,230,0.1);
+      font-size: 0.78rem; letter-spacing: 0.1em;
+      color: rgba(242,237,230,0.65); transition: all 0.3s;
+    }
+    .forge-event:hover { border-color: var(--gold); color: var(--cream); }
+    .forge-event-icon { font-size: 1.3rem; margin-bottom: 0.5rem; display: block; }
+
+    /* ACTIVITIES */
+    .activities { background: var(--moss); }
+    .act-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+    .act-card {
+      padding: 2rem; border: 1px solid rgba(242,237,230,0.1);
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .act-card:hover { border-color: var(--gold); background: rgba(184,148,90,0.05); }
+    .act-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 300; margin-bottom: 0.8rem;
+    }
+    .act-desc { font-size: 0.85rem; line-height: 1.7; color: rgba(242,237,230,0.6); margin-bottom: 1.5rem; }
+    .act-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; color: var(--gold);
+    }
+    .act-price-child { font-size: 0.75rem; color: rgba(242,237,230,0.45); margin-top: 0.3rem; font-family: 'Jost', sans-serif; }
+
+    /* LOCATION */
+    .location { background: var(--forest); text-align: center; }
+    .location .section-title { max-width: 700px; margin: 0 auto 1.5rem; }
+    .location .section-body { margin: 0 auto 3rem; text-align: center; }
+    .location-details {
+      display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+      margin-top: 3rem; padding-top: 3rem;
+      border-top: 1px solid rgba(242,237,230,0.1);
+    }
+    .location-detail { text-align: center; }
+    .location-detail-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .location-detail-val { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; }
+
+    /* CONTACT */
+    .contact {
+      background: var(--moss);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+    .contact-item-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .contact-item-val { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; }
+    .contact-item-val a { color: var(--cream); text-decoration: none; transition: color 0.3s; }
+    .contact-item-val a:hover { color: var(--gold); }
+    .contact-form-side { }
+    .contact-form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300; margin-bottom: 0.8rem;
+    }
+    .contact-form-sub { font-size: 0.85rem; color: rgba(242,237,230,0.6); margin-bottom: 2rem; line-height: 1.7; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: rgba(242,237,230,0.05);
+      border: 1px solid rgba(242,237,230,0.15); color: var(--cream);
+      padding: 0.9rem 1rem; font-family: 'Jost', sans-serif; font-size: 0.85rem;
+      outline: none; transition: border-color 0.3s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group select option { background: var(--forest); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      width: 100%; background: var(--gold); color: var(--forest);
+      border: none; padding: 1rem; cursor: pointer;
+      font-family: 'Jost', sans-serif; font-size: 0.78rem;
+      letter-spacing: 0.2em; text-transform: uppercase; transition: background 0.3s;
+    }
+    .form-submit:hover { background: var(--cream); }
+
+    /* FOOTER */
+    footer {
+      background: #0a0f09; padding: 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+    }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.3em; }
+    .footer-copy { font-size: 0.72rem; color: rgba(242,237,230,0.3); letter-spacing: 0.1em; }
+    .footer-social { display: flex; gap: 1.5rem; }
+    .footer-social a { font-size: 0.72rem; letter-spacing: 0.15em; color: rgba(242,237,230,0.5); text-decoration: none; transition: color 0.3s; }
+    .footer-social a:hover { color: var(--gold); }
+
+    /* LANG HIDDEN */
+    [data-lang] { display: none; }
+    .lang-it [data-lang="it"] { display: block; }
+    .lang-it [data-lang="it"].inline { display: inline; }
+    .lang-en [data-lang="en"] { display: block; }
+    .lang-en [data-lang="en"].inline { display: inline; }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px; background: linear-gradient(to right, transparent, rgba(184,148,90,0.3), transparent);
+      margin: 0 3rem;
+    }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s, transform 0.8s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section, .intro, .forge, .contact { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
+      .apt-grid { grid-template-columns: 1fr; }
+      .apt-full { grid-template-columns: 1fr; }
+      .act-grid { grid-template-columns: 1fr; }
+      .hero { padding: 0 1.5rem 4rem; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    }
+
+    /* LOGO IMAGE */
+    .nav-logo img { height: 38px; width: auto; display: block; filter: brightness(0) invert(1); }
+
+    /* HERO PHOTO OVERLAY */
+    .hero-photo {
+      position: absolute; inset: 0;
+      background-image: url('images/hero.png');
+      background-size: cover; background-position: center 40%;
+      opacity: 0.35;
+    }
+
+    /* INTRO VISUAL PHOTO */
+    .intro-visual img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .intro-visual-inner { background: transparent; }
+
+    /* FORGE PHOTO */
+    .forge-visual { position: relative; overflow: hidden; }
+    .forge-visual img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; display: block; opacity: 0.65;
+    }
+    .forge-glow { z-index: 1; }
+    .forge-icon { z-index: 1; display: none; }
+
+    /* APT PHOTOS */
+    .apt-photo {
+      width: 100%; aspect-ratio: 4/3; overflow: hidden;
+      margin-bottom: 1.5rem; cursor: pointer; position: relative;
+    }
+    .apt-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s; display: block;
+    }
+    .apt-photo:hover img { transform: scale(1.04); }
+    .apt-photo-hint {
+      position: absolute; bottom: 0.6rem; right: 0.6rem;
+      background: rgba(0,0,0,0.55); color: var(--cream);
+      font-size: 0.6rem; letter-spacing: 0.08em; padding: 0.22rem 0.5rem;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.93);
+      display: none; align-items: center; justify-content: center; flex-direction: column;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-img { max-width: 88vw; max-height: 80vh; object-fit: contain; display: block; }
+    .lightbox-close {
+      position: absolute; top: 1.2rem; right: 1.8rem;
+      font-size: 2rem; color: var(--cream); cursor: pointer;
+      background: none; border: none; line-height: 1; opacity: 0.65; transition: opacity 0.2s;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-prev, .lightbox-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      font-size: 1.5rem; color: var(--cream); cursor: pointer;
+      background: rgba(255,255,255,0.08); border: none; padding: 0.9rem 1.1rem; transition: background 0.2s;
+    }
+    .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.18); }
+    .lightbox-prev { left: 0.8rem; }
+    .lightbox-next { right: 0.8rem; }
+    .lightbox-counter {
+      position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+      font-size: 0.68rem; letter-spacing: 0.15em; color: rgba(242,237,230,0.45);
+    }
+
+    /* ACTIVITIES FULL WIDTH NO GAP */
+    .act-grid { gap: 0 !important; }
+    .act-card {
+      border: none !important;
+      border-right: 1px solid rgba(242,237,230,0.1) !important;
+    }
+    .act-card:last-child { border-right: none !important; }
+    .act-link {
+      display: inline-block; margin-top: 1.2rem;
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none;
+      border-bottom: 1px solid rgba(184,148,90,0.35); padding-bottom: 0.15rem;
+      transition: border-color 0.2s;
+    }
+    .act-link:hover { border-color: var(--gold); }
+  </style>
+</head>
+<body class="lang-it">
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><img src="images/logo.png" alt="Mulino Verde" /></a>
+  <ul class="nav-links">
+    <li><a href="#appartamenti"><span data-lang="it" class="inline">Appartamenti</span><span data-lang="en" class="inline">Apartments</span></a></li>
+    <li><a href="#forgia"><span data-lang="it" class="inline">Forgia</span><span data-lang="en" class="inline">Forge</span></a></li>
+    <li><a href="#attivita"><span data-lang="it" class="inline">Attività</span><span data-lang="en" class="inline">Activities</span></a></li>
+    <li><a href="eventi.html" style="color:var(--gold);"><span data-lang="it" class="inline">Eventi</span><span data-lang="en" class="inline">Events</span></a></li>
+    <li><a href="#contatti"><span data-lang="it" class="inline">Contatti</span><span data-lang="en" class="inline">Contact</span></a></li>
+  </ul>
+  <button class="lang-switch" onclick="toggleLang()">EN / IT</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-photo"></div>
+  <div class="hero-year">1798</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">
+      <span data-lang="it" class="inline">Bagni di Lucca · Toscana · Dal 1798</span>
+      <span data-lang="en" class="inline">Bagni di Lucca · Tuscany · Since 1798</span>
+    </p>
+    <h1 class="hero-title">
+      Mulino<br><em>Verde</em>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="it">Un antico mulino sul fiume Lima, trasformato in un luogo dove la natura, la storia e l'esperienza umana si incontrano.</span>
+      <span data-lang="en">An ancient mill on the Lima river, transformed into a place where nature, history and human experience meet.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#appartamenti" class="btn-primary">
+        <span data-lang="it" class="inline">Scopri gli appartamenti</span>
+        <span data-lang="en" class="inline">Explore apartments</span>
+      </a>
+      <a href="#forgia" class="btn-outline">
+        <span data-lang="it" class="inline">Spazio eventi</span>
+        <span data-lang="en" class="inline">Event space</span>
+      </a>
+    </div>
+  </div>
+  <span class="hero-scroll">
+    <span data-lang="it" class="inline">Scorri</span>
+    <span data-lang="en" class="inline">Scroll</span>
+  </span>
+</section>
+
+<!-- INTRO -->
+<div class="intro reveal">
+  <div class="intro-text">
+    <span class="section-label">
+      <span data-lang="it" class="inline">Il luogo</span>
+      <span data-lang="en" class="inline">The place</span>
+    </span>
+    <h2 class="section-title">
+      <span data-lang="it">Dove il bosco incontra il fiume</span>
+      <span data-lang="en">Where the forest meets the river</span>
+    </h2>
+    <p class="section-body">
+      <span data-lang="it">Mulino Verde è un mulino storico del 1798 a Bagni di Lucca, restaurato e diviso in tre appartamenti indipendenti. Si affaccia sul torrente Lima, in una zona silenziosa circondata da montagne e foresta. Un posto raro: autentico, lontano dal turismo di massa, vivo.</span>
+      <span data-lang="en">Mulino Verde is a historic 1798 mill in Bagni di Lucca, restored and divided into three independent apartments. It overlooks the Lima stream, in a quiet area surrounded by mountains and forest. A rare place: authentic, far from mass tourism, alive.</span>
+    </p>
+    <div class="intro-stats">
+      <div class="stat"><div class="stat-num">1798</div><div class="stat-label"><span data-lang="it" class="inline">Anno di costruzione</span><span data-lang="en" class="inline">Year built</span></div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label"><span data-lang="it" class="inline">Appartamenti</span><span data-lang="en" class="inline">Apartments</span></div></div>
+      <div class="stat"><div class="stat-num">27</div><div class="stat-label"><span data-lang="it" class="inline">Ospiti max</span><span data-lang="en" class="inline">Max guests</span></div></div>
+      <div class="stat"><div class="stat-num">∞</div><div class="stat-label"><span data-lang="it" class="inline">Natura intorno</span><span data-lang="en" class="inline">Nature around</span></div></div>
+    </div>
+  </div>
+  <div class="intro-visual">
+    <img src="images/intro_visual.png" alt="Mulino Verde entrata" />
+    <div class="intro-visual-inner"></div>
+    <div class="intro-badge">
+      <span data-lang="it" class="inline">Casa vacanze & spazio eventi</span>
+      <span data-lang="en" class="inline">Holiday home & event space</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- APARTMENTS -->
+<section id="appartamenti" class="apartments">
+  <span class="section-label">
+    <span data-lang="it" class="inline">Dove dormire</span>
+    <span data-lang="en" class="inline">Where to sleep</span>
+  </span>
+  <h2 class="section-title reveal">
+    <span data-lang="it">Tre appartamenti indipendenti</span>
+    <span data-lang="en">Three independent apartments</span>
+  </h2>
+  <p class="section-body reveal">
+    <span data-lang="it">Ogni appartamento è autonomo, con cucina e terrazza privata. Possono essere affittati separatamente o insieme per gruppi fino a 27 persone.</span>
+    <span data-lang="en">Each apartment is self-contained, with kitchen and private terrace. They can be rented separately or together for groups of up to 27 people.</span>
+  </p>
+
+  <div class="apt-grid reveal">
+    <!-- APT 1 -->
+    <div class="apt-card">
+      <div class="apt-photo">
+        <img src="images/piccolo_2.png" alt="Appartamento Piccolo" />
+      </div>
+      <div class="apt-num">01</div>
+      <div class="apt-size">Small</div>
+      <div class="apt-name">
+        <span data-lang="it" class="inline">Piccolo</span>
+        <span data-lang="en" class="inline">Small</span>
+      </div>
+      <div class="apt-specs">
+        <div class="apt-spec"><span data-lang="it" class="inline">2 piani · 2 camere · 1 bagno</span><span data-lang="en" class="inline">2 floors · 2 bedrooms · 1 bathroom</span></div>
+        <div class="apt-spec"><span data-lang="it" class="inline">Cucina open space · Terrazza sul giardino</span><span data-lang="en" class="inline">Open kitchen · Garden terrace</span></div>
+        <div class="apt-spec"><span data-lang="it" class="inline">Stufa a legna</span><span data-lang="en" class="inline">Wood-burning stove</span></div>
+        <div class="apt-spec" style="color:var(--cream); font-weight:400;"><span data-lang="it" class="inline">4 posti letto standard · fino a 6 con letti a castello</span><span data-lang="en" class="inline">4 standard beds · up to 6 with bunk beds</span></div>
+      </div>
+      <div class="apt-price">€110 <span>/ <span data-lang="it" class="inline">notte</span><span data-lang="en" class="inline">night</span></span></div>
+      <p style="font-size:0.75rem; color:var(--gold); margin-top:0.6rem;">
+        <span data-lang="it" class="inline">+€20/persona/notte oltre i 4 posti standard</span>
+        <span data-lang="en" class="inline">+€20/person/night beyond 4 standard beds</span>
+      </p>
+    </div>
+
+    <!-- APT 2 -->
+    <div class="apt-card">
+      <div class="apt-photo">
+        <img src="images/medio_5.png" alt="Appartamento Medio" />
+      </div>
+      <div class="apt-num">02</div>
+      <div class="apt-size">Medium</div>
+      <div class="apt-name">
+        <span data-lang="it" class="inline">Medio</span>
+        <span data-lang="en" class="inline">Medium</span>
+      </div>
+      <div class="apt-specs">
+        <div class="apt-spec"><span data-lang="it" class="inline">2 piani · 2 camere · 2 bagni</span><span data-lang="en" class="inline">2 floors · 2 bedrooms · 2 bathrooms</span></div>
+        <div class="apt-spec"><span data-lang="it" class="inline">Terrazza vista fiume</span><span data-lang="en" class="inline">River view terrace</span></div>
+        <div class="apt-spec"><span data-lang="it" class="inline">Stufa a pellet</span><span data-lang="en" class="inline">Pellet stove</span></div>
+        <div class="apt-spec" style="color:var(--cream); font-weight:400;"><span data-lang="it" class="inline">4 posti letto standard · fino a 8 con letti a castello e divano</span><span data-lang="en" class="inline">4 standard beds · up to 8 with bunk beds & sofa bed</span></div>
+      </div>
+      <div class="apt-price">€130 <span>/ <span data-lang="it" class="inline">notte</span><span data-lang="en" class="inline">night</span></span></div>
+      <p style="font-size:0.75rem; color:var(--gold); margin-top:0.6rem;">
+        <span data-lang="it" class="inline">+€20/persona/notte oltre i 4 posti standard</span>
+        <span data-lang="en" class="inline">+€20/person/night beyond 4 standard beds</span>
+      </p>
+    </div>
+
+    <!-- APT 3 -->
+    <div class="apt-card">
+      <div class="apt-photo">
+        <img src="images/grande_2.png" alt="Appartamento Grande" />
+      </div>
+      <div class="apt-num">03</div>
+      <div class="apt-size">Large</div>
+      <div class="apt-name">
+        <span data-lang="it" class="inline">Grande</span>
+        <span data-lang="en" class="inline">Large</span>
+      </div>
+      <div class="apt-specs">
+        <div class="apt-spec"><span data-lang="it" class="inline">3 piani · 4 camere · 2 bagni</span><span data-lang="en" class="inline">3 floors · 4 bedrooms · 2 bathrooms</span></div>
+        <div class="apt-spec"><span data-lang="it" class="inline">Soggiorno · Mansarda · Terrazza e giardino</span><span data-lang="en" class="inline">Living room · Attic · Terrace & garden</span></div>
+        <div class="apt-spec"><span data-lang="it" class="inline">Riscaldamento autonomo</span><span data-lang="en" class="inline">Independent heating</span></div>
+        <div class="apt-spec" style="color:var(--cream); font-weight:400;"><span data-lang="it" class="inline">9 posti letto standard · fino a 13 con letti a castello e divano</span><span data-lang="en" class="inline">9 standard beds · up to 13 with bunk beds & sofa bed</span></div>
+      </div>
+      <div class="apt-price">€220 <span>/ <span data-lang="it" class="inline">notte</span><span data-lang="en" class="inline">night</span></span></div>
+      <p style="font-size:0.75rem; color:var(--gold); margin-top:0.6rem;">
+        <span data-lang="it" class="inline">+€20/persona/notte oltre i 9 posti standard</span>
+        <span data-lang="en" class="inline">+€20/person/night beyond 9 standard beds</span>
+      </p>
+    </div>
+
+    <!-- INTERA PROPRIETÀ -->
+    <div class="apt-full reveal">
+      <div>
+        <div class="apt-size">
+          <span data-lang="it" class="inline">Intera proprietà</span>
+          <span data-lang="en" class="inline">Entire property</span>
+        </div>
+        <div class="apt-name">
+          <span data-lang="it" class="inline">Tutti e tre gli appartamenti</span>
+          <span data-lang="en" class="inline">All three apartments</span>
+        </div>
+        <div class="apt-specs">
+          <div class="apt-spec"><span data-lang="it" class="inline">8 camere · 5 bagni · 3 cucine · 3 terrazze</span><span data-lang="en" class="inline">8 bedrooms · 5 bathrooms · 3 kitchens · 3 terraces</span></div>
+          <div class="apt-spec"><span data-lang="it" class="inline">Giardino comune · Area barbecue · Ping pong</span><span data-lang="en" class="inline">Shared garden · BBQ area · Ping pong</span></div>
+          <div class="apt-spec"><span data-lang="it" class="inline">Accesso al prato sul fiume</span><span data-lang="en" class="inline">Access to riverside lawn</span></div>
+          <div class="apt-spec"><span data-lang="it" class="inline">Max 27 ospiti</span><span data-lang="en" class="inline">Max 27 guests</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="apt-price" style="font-size:3rem;">€410 <span>/ <span data-lang="it" class="inline">notte</span><span data-lang="en" class="inline">night</span></span></div>
+        <p style="margin-top:1rem; font-size:0.82rem; color:rgba(242,237,230,0.6); line-height:1.7;">
+          <span data-lang="it">Posti letto standard totali: <strong style="color:var(--cream)">17</strong> (4+4+9).<br>Oltre i 17 posti, si aggiungono letti a castello e divani letto fino a max 27 persone: <strong style="color:var(--gold)">+€20/persona/notte</strong>.</span>
+          <span data-lang="en">Total standard beds: <strong style="color:var(--cream)">17</strong> (4+4+9).<br>Beyond 17 guests, bunk beds and sofa beds can be added up to 27 people: <strong style="color:var(--gold)">+€20/person/night</strong>.</span>
+        </p>
+        <a href="#contatti" class="btn-primary" style="display:inline-block; margin-top:1.5rem;">
+          <span data-lang="it" class="inline">Richiedi disponibilità</span>
+          <span data-lang="en" class="inline">Check availability</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FORGE / EVENTI -->
+<div id="forgia" class="forge">
+  <div class="forge-visual">
+    <img src="images/forgia.png" alt="Forgia Mulino Verde" />
+    <div class="forge-glow"></div>
+  </div>
+  <div class="forge-content reveal">
+    <span class="section-label">
+      <span data-lang="it" class="inline">Spazio eventi</span>
+      <span data-lang="en" class="inline">Event space</span>
+    </span>
+    <h2 class="section-title">
+      <span data-lang="it">L'antica ferriera</span>
+      <span data-lang="en">The ancient forge</span>
+    </h2>
+    <p class="section-body">
+      <span data-lang="it">Abbiamo scelto di non conservarla come luogo intoccabile, ma di usarla come spazio dove le persone possono venire, stare insieme e condividere la propria esperienza. Oggi ospita sessioni di yoga, degustazioni di vino, cene condivise, workshop d'arte. L'atmosfera del luogo rende ogni esperienza più profonda e immersiva.</span>
+      <span data-lang="en">We chose not to preserve it as an untouchable place, but to use it as a space where people can come, spend time together and share their experience. Today it hosts yoga sessions, wine tastings, shared dinners, art workshops. The atmosphere of the place makes every experience feel deeper and more immersive.</span>
+    </p>
+    <div class="forge-events">
+      <div class="forge-event"><span class="forge-event-icon">🧘</span>Yoga & <span data-lang="it" class="inline">meditazione</span><span data-lang="en" class="inline">meditation</span></div>
+      <div class="forge-event"><span class="forge-event-icon">🍷</span><span data-lang="it" class="inline">Degustazioni</span><span data-lang="en" class="inline">Wine tastings</span></div>
+      <div class="forge-event"><span class="forge-event-icon">🎨</span><span data-lang="it" class="inline">Workshop creativi</span><span data-lang="en" class="inline">Creative workshops</span></div>
+      <div class="forge-event"><span class="forge-event-icon">🕯</span><span data-lang="it" class="inline">Cene condivise</span><span data-lang="en" class="inline">Shared dinners</span></div>
+      <div class="forge-event"><span class="forge-event-icon">🎵</span><span data-lang="it" class="inline">Concerti intimi</span><span data-lang="en" class="inline">Intimate concerts</span></div>
+      <div class="forge-event"><span class="forge-event-icon">🌿</span><span data-lang="it" class="inline">Retreat & wellness</span><span data-lang="en" class="inline">Retreat & wellness</span></div>
+    </div>
+    <a href="#contatti" class="btn-outline" style="display:inline-block; margin-top:2rem;">
+      <span data-lang="it" class="inline">Organizza il tuo evento</span>
+      <span data-lang="en" class="inline">Organise your event</span>
+    </a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ACTIVITIES -->
+<section id="attivita" class="activities">
+  <span class="section-label">
+    <span data-lang="it" class="inline">Sul fiume Lima</span>
+    <span data-lang="en" class="inline">On the Lima river</span>
+  </span>
+  <h2 class="section-title reveal">
+    <span data-lang="it">Attività fluviali</span>
+    <span data-lang="en">River activities</span>
+  </h2>
+  <p class="section-body reveal">
+    <span data-lang="it">Dall'altro lato del fiume si trova la nostra base di rafting con <a href="https://www.firenzerafting.it" target="_blank" style="color:var(--gold); text-decoration:underline; text-underline-offset:3px;">Firenze Rafting</a>. Puoi includere queste attività nel tuo soggiorno.</span>
+    <span data-lang="en">On the other side of the river you'll find our rafting base with <a href="https://www.firenzerafting.it" target="_blank" style="color:var(--gold); text-decoration:underline; text-underline-offset:3px;">Firenze Rafting</a>. You can include these activities in your stay.</span>
+  </p>
+  <div class="act-grid reveal">
+    <div class="act-card">
+      <div class="act-name">Rafting</div>
+      <div class="act-desc">
+        <span data-lang="it">Discesa del torrente Lima in gommone. Adatto a famiglie e gruppi, emozione garantita.</span>
+        <span data-lang="en">Whitewater rafting on the Lima stream. Suitable for families and groups, guaranteed thrills.</span>
+      </div>
+      <div class="act-price">€49</div>
+      <div class="act-price-child"><span data-lang="it" class="inline">Bambini fino 12 anni: €39</span><span data-lang="en" class="inline">Children up to 12: €39</span></div>
+      <a href="https://www.firenzerafting.it/rafting-lima/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
+    </div>
+    <div class="act-card">
+      <div class="act-name">Canyoning</div>
+      <div class="act-desc">
+        <span data-lang="it">Esplora gole e cascate tra le rocce della Toscana. Un'avventura nel cuore della natura selvaggia.</span>
+        <span data-lang="en">Explore gorges and waterfalls among Tuscany's rocks. An adventure in the heart of wild nature.</span>
+      </div>
+      <div class="act-price">€55</div>
+      <div class="act-price-child"><span data-lang="it" class="inline">Bambini fino 12 anni: €45</span><span data-lang="en" class="inline">Children up to 12: €45</span></div>
+      <a href="https://www.firenzerafting.it/canyoning-lima/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
+    </div>
+    <div class="act-card">
+      <div class="act-name">Packrafting</div>
+      <div class="act-desc">
+        <span data-lang="it">Kayak gonfiabile ultraleggero per esplorare il fiume in modo autonomo. Per 16+ anni.</span>
+        <span data-lang="en">Ultralight inflatable kayak to explore the river independently. Ages 16+.</span>
+      </div>
+      <div class="act-price">€65</div>
+      <div class="act-price-child"><span data-lang="it" class="inline">Non disponibile sotto i 16 anni</span><span data-lang="en" class="inline">Not available under 16</span></div>
+      <a href="https://www.firenzerafting.it/packrafting-lima/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LOCATION -->
+<section class="location reveal">
+  <span class="section-label">
+    <span data-lang="it" class="inline">Come raggiungerci</span>
+    <span data-lang="en" class="inline">How to find us</span>
+  </span>
+  <h2 class="section-title">
+    <span data-lang="it">Nel cuore della Toscana, lontano da tutto</span>
+    <span data-lang="en">In the heart of Tuscany, away from everything</span>
+  </h2>
+  <p class="section-body">
+    <span data-lang="it">Mulino Verde si trova a Località Cevoli, Bagni di Lucca — a 30 minuti da Lucca, 1h30 da Firenze, immerso nel verde della Garfagnana.</span>
+    <span data-lang="en">Mulino Verde is located in Località Cevoli, Bagni di Lucca — 30 minutes from Lucca, 1h30 from Florence, immersed in the Garfagnana greenery.</span>
+  </p>
+  <div class="location-details">
+    <div class="location-detail">
+      <div class="location-detail-label"><span data-lang="it" class="inline">Indirizzo</span><span data-lang="en" class="inline">Address</span></div>
+      <div class="location-detail-val">Località Cevoli, 55022 Bagni di Lucca</div>
+    </div>
+    <div class="location-detail">
+      <div class="location-detail-label"><span data-lang="it" class="inline">Da Lucca</span><span data-lang="en" class="inline">From Lucca</span></div>
+      <div class="location-detail-val">~30 min</div>
+    </div>
+    <div class="location-detail">
+      <div class="location-detail-label"><span data-lang="it" class="inline">Da Firenze</span><span data-lang="en" class="inline">From Florence</span></div>
+      <div class="location-detail-val">~1h30</div>
+    </div>
+    <div class="location-detail">
+      <div class="location-detail-label"><span data-lang="it" class="inline">Da Pisa</span><span data-lang="en" class="inline">From Pisa</span></div>
+      <div class="location-detail-val">~45 min</div>
+    </div>
+  </div>
+  <a href="https://maps.app.goo.gl/qfCvAv7GNqeYGGVd8" target="_blank" class="btn-outline" style="display:inline-block; margin-top:2.5rem;">
+    <span data-lang="it" class="inline">Apri in Google Maps</span>
+    <span data-lang="en" class="inline">Open in Google Maps</span>
+  </a>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contatti" class="contact">
+  <div class="contact-info reveal">
+    <span class="section-label">
+      <span data-lang="it" class="inline">Vieni a trovarci</span>
+      <span data-lang="en" class="inline">Get in touch</span>
+    </span>
+    <h2 class="section-title">
+      <span data-lang="it">Parliamo del tuo soggiorno</span>
+      <span data-lang="en">Let's talk about your stay</span>
+    </h2>
+    <p class="section-body" style="margin-bottom:2rem;">
+      <span data-lang="it">Che tu voglia organizzare una vacanza, un evento o semplicemente venire a vedere il posto, scrivici.</span>
+      <span data-lang="en">Whether you'd like to organise a holiday, an event, or simply come and see the place, get in touch.</span>
+    </p>
+    <div class="contact-item">
+      <div class="contact-item-label">Email</div>
+      <div class="contact-item-val"><a href="mailto:info@firenzerafting.it">info@firenzerafting.it</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-label">WhatsApp / Tel</div>
+      <div class="contact-item-val"><a href="tel:+393490921540">+39 349 092 1540</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-label">Instagram</div>
+      <div class="contact-item-val"><a href="https://instagram.com/mulinoverde.toscana" target="_blank">@mulinoverde.toscana</a></div>
+    </div>
+  </div>
+  <div class="contact-form-side reveal">
+    <div class="contact-form-title">
+      <span data-lang="it">Invia una richiesta</span>
+      <span data-lang="en">Send a request</span>
+    </div>
+    <div class="contact-form-sub">
+      <span data-lang="it">Ti risponderemo entro 24 ore.</span>
+      <span data-lang="en">We'll reply within 24 hours.</span>
+    </div>
+    <div class="form-group">
+      <input type="text" placeholder="Nome / Name" />
+    </div>
+    <div class="form-group">
+      <input type="email" placeholder="Email" />
+    </div>
+    <div class="form-group">
+      <select>
+        <option value="" disabled selected>
+          <span data-lang="it">Tipo di richiesta</span>
+          <span data-lang="en">Request type</span>
+        </option>
+        <option value="vacanza">Casa vacanze / Holiday rental</option>
+        <option value="evento">Spazio eventi / Event space</option>
+        <option value="attivita">Attività fluviali / River activities</option>
+        <option value="altro">Altro / Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <textarea placeholder="Messaggio / Message"></textarea>
+    </div>
+    <button class="form-submit">
+      <span data-lang="it" class="inline">Invia richiesta</span>
+      <span data-lang="en" class="inline">Send request</span>
+    </button>
+  </div>
+</section>
+
+<!-- EVENTI BANNER -->
+<div style="background:var(--moss); padding:4rem 3rem; text-align:center; border-top:1px solid rgba(242,237,230,0.08);">
+  <span style="font-size:0.68rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:1rem;">
+    <span data-lang="it" class="inline">Cosa succede al Mulino</span>
+    <span data-lang="en" class="inline">What's happening at the Mill</span>
+  </span>
+  <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,3.5vw,3rem); font-weight:300; margin-bottom:1rem;">
+    <span data-lang="it">Yoga, vino, musica, spiritualità.<br><em style="font-style:italic; color:var(--sage);">Scopri gli eventi in programma.</em></span>
+    <span data-lang="en">Yoga, wine, music, spirituality.<br><em style="font-style:italic; color:var(--sage);">Discover upcoming events.</em></span>
+  </h2>
+  <p style="font-size:0.95rem; color:rgba(242,237,230,0.6); max-width:480px; margin:0 auto 2rem; line-height:1.8;">
+    <span data-lang="it">Dal cerchio di cacao nella forgia all'alba in kayak sul Lima. Iscriviti e ricevi solo gli eventi che ti interessano.</span>
+    <span data-lang="en">From a cacao circle in the forge to sunrise kayaking on the Lima. Subscribe and receive only the events that interest you.</span>
+  </p>
+  <a href="eventi.html" style="display:inline-block; background:var(--gold); color:var(--forest); padding:0.9rem 2.5rem; font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; transition:background 0.3s;"
+    onmouseover="this.style.background='#f2ede6'" onmouseout="this.style.background='#b8945a'">
+    <span data-lang="it" class="inline">Vedi tutti gli eventi →</span>
+    <span data-lang="en" class="inline">See all events →</span>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">MULINO VERDE · 1798</div>
+  <div class="footer-copy">© 2026 Mulino Verde · Bagni di Lucca, Toscana</div>
+  <div class="footer-social">
+    <a href="eventi.html"><span data-lang="it" class="inline">Eventi</span><span data-lang="en" class="inline">Events</span></a>
+    <a href="https://instagram.com/mulinoverde.toscana" target="_blank">Instagram</a>
+    <a href="https://www.firenzerafting.it/mulino-verde-dormire-natura-bosco-toscana/" target="_blank">Firenze Rafting</a>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-prev" onclick="lightboxPrev()">‹</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+  <button class="lightbox-next" onclick="lightboxNext()">›</button>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+
+<script>
+  // Language toggle
+  function toggleLang() {
+    const body = document.body;
+    if (body.classList.contains('lang-it')) {
+      body.classList.remove('lang-it');
+      body.classList.add('lang-en');
+    } else {
+      body.classList.remove('lang-en');
+      body.classList.add('lang-it');
+    }
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Lightbox
+  const galleries = {
+    piccolo: [
+      { src: 'images/piccolo_2.png', cap: 'Camera singola' },
+      { src: 'images/piccolo%202.png', cap: 'Camera matrimoniale' },
+      { src: 'images/piccolo%203.png', cap: 'Terrazza' }
+    ],
+    medio: [
+      { src: 'images/medio_5.png', cap: 'Camera matrimoniale con vetrata' },
+      { src: 'images/medio%203.png', cap: 'Camera matrimoniale' },
+      { src: 'images/medio%204.png', cap: 'Camera singola' },
+      { src: 'images/medio%205.png', cap: 'Camera matrimoniale' },
+      { src: 'images/medio%206.png', cap: 'Terrazza con vista giardino' }
+    ],
+    grande: [
+      { src: 'images/grande_2.png', cap: 'Camera singola' },
+      { src: 'images/grande%202.png', cap: 'Camera matrimoniale' },
+      { src: 'images/grande%203.png', cap: 'Camera matrimoniale' },
+      { src: 'images/grande%20attico.png', cap: 'Mansarda con libreria' },
+      { src: 'images/grande%20attico-1.png', cap: 'Mansarda vista bosco' },
+      { src: 'images/grande%20salotto.png', cap: 'Salotto con camino' }
+    ]
+  };
+  let currentGallery = [];
+  let currentIndex = 0;
+
+  function openLightbox(gallery, index) {
+    currentGallery = galleries[gallery];
+    currentIndex = index;
+    showLightboxImg();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function showLightboxImg() {
+    const item = currentGallery[currentIndex];
+    document.getElementById('lightbox-img').src = item.src;
+    document.getElementById('lightbox-img').alt = item.cap;
+    document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + currentGallery.length;
+  }
+  function lightboxPrev() { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; showLightboxImg(); }
+  function lightboxNext() { currentIndex = (currentIndex + 1) % currentGallery.length; showLightboxImg(); }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeLightboxOutside(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lightboxPrev();
+    if (e.key === 'ArrowRight') lightboxNext();
+  });
+</script>
+</body>
+</html>

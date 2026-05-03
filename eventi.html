@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventi – Mulino Verde | Bagni di Lucca</title>
+  <meta name="description" content="Scopri gli eventi al Mulino Verde: yoga, degustazioni, workshop d'arte, trekking, retreat e molto altro. Iscriviti alla newsletter e ricevi solo gli eventi che ti interessano." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --forest: #1a2418;
+      --moss: #2d3d28;
+      --sage: #5a7052;
+      --cream: #f2ede6;
+      --warm: #e8dfd0;
+      --gold: #b8945a;
+      --water: #3d5c5a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--forest);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 3rem;
+      background: linear-gradient(to bottom, rgba(26,36,24,0.97), transparent);
+    }
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem; letter-spacing: 0.3em; color: var(--cream);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--warm); text-decoration: none;
+      font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .lang-switch {
+      font-size: 0.75rem; letter-spacing: 0.1em; cursor: pointer;
+      color: var(--gold); border: 1px solid var(--gold);
+      padding: 0.3rem 0.8rem; background: none;
+      font-family: 'Jost', sans-serif; transition: all 0.3s;
+    }
+    .lang-switch:hover { background: var(--gold); color: var(--forest); }
+
+    /* HERO */
+    .hero {
+      min-height: 55vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 3rem 5rem;
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, #0e1810 0%, #1a2e1a 50%, #2d3d20 100%);
+    }
+    .hero-bg-text {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Cinzel', serif;
+      font-size: clamp(5rem, 15vw, 13rem);
+      color: rgba(255,255,255,0.03);
+      white-space: nowrap; pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+      animation: fadeUp 0.8s 0.2s both;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 300; line-height: 1;
+      animation: fadeUp 0.8s 0.4s both;
+    }
+    .hero-title em { font-style: italic; color: var(--sage); }
+    .hero-sub {
+      font-size: 1rem; color: rgba(242,237,230,0.65); line-height: 1.8;
+      max-width: 500px; margin-top: 1.2rem;
+      animation: fadeUp 0.8s 0.6s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* FILTERS */
+    .filters-bar {
+      background: var(--moss);
+      padding: 2rem 3rem;
+      display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+      position: sticky; top: 70px; z-index: 50;
+      border-bottom: 1px solid rgba(242,237,230,0.08);
+    }
+    .filter-label {
+      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(242,237,230,0.4); margin-right: 0.5rem;
+    }
+    .filter-btn {
+      padding: 0.45rem 1.1rem;
+      border: 1px solid rgba(242,237,230,0.2);
+      background: none; color: rgba(242,237,230,0.65);
+      font-family: 'Jost', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.1em; cursor: pointer; transition: all 0.25s;
+    }
+    .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--forest); }
+
+    /* EVENTI */
+    .eventi-section { padding: 4rem 3rem; }
+
+    .month-block { margin-bottom: 4rem; }
+    .month-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; font-weight: 300;
+      color: rgba(242,237,230,0.2);
+      border-bottom: 1px solid rgba(242,237,230,0.08);
+      padding-bottom: 1rem; margin-bottom: 2rem;
+      display: flex; align-items: baseline; gap: 1rem;
+    }
+    .month-count {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.2em;
+      color: var(--gold); text-transform: uppercase;
+    }
+
+    .eventi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5px; }
+
+    .event-card {
+      background: var(--moss);
+      padding: 2rem;
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .event-card:hover { background: #2a3a25; }
+    .event-card::after {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 3px;
+      background: var(--gold); transform: scaleY(0);
+      transition: transform 0.3s; transform-origin: bottom;
+    }
+    .event-card:hover::after { transform: scaleY(1); }
+    .event-card.hidden { display: none; }
+
+    .event-tag {
+      display: inline-block;
+      font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--forest); background: var(--gold);
+      padding: 0.2rem 0.6rem; margin-bottom: 1rem;
+    }
+    .event-date {
+      font-size: 0.75rem; color: rgba(242,237,230,0.4);
+      letter-spacing: 0.1em; margin-bottom: 0.6rem;
+    }
+    .event-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 400; line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+    .event-desc {
+      font-size: 0.82rem; line-height: 1.7;
+      color: rgba(242,237,230,0.6); margin-bottom: 1.5rem;
+    }
+    .event-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.8rem;
+    }
+    .event-meta { font-size: 0.75rem; color: rgba(242,237,230,0.4); }
+    .event-cta {
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); background: none; border: 1px solid var(--gold);
+      padding: 0.4rem 1rem; cursor: pointer; font-family: 'Jost', sans-serif;
+      transition: all 0.25s;
+    }
+    .event-cta:hover { background: var(--gold); color: var(--forest); }
+
+    .event-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; color: var(--gold); font-weight: 400;
+    }
+    .event-price-free {
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--sage); border: 1px solid var(--sage);
+      padding: 0.2rem 0.6rem; display: inline-block;
+    }
+    .event-organizer {
+      font-size: 0.72rem; color: rgba(242,237,230,0.4);
+      margin-top: 0.6rem;
+    }
+    .event-organizer a { color: var(--gold); text-decoration: none; }
+    .event-organizer a:hover { text-decoration: underline; }
+
+    .modal-details {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.8rem; margin-bottom: 1.5rem;
+    }
+    .modal-detail {
+      padding: 0.8rem; background: rgba(242,237,230,0.04);
+      border: 1px solid rgba(242,237,230,0.08);
+    }
+    .modal-detail-label {
+      font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(242,237,230,0.35); margin-bottom: 0.3rem;
+    }
+    .modal-detail-val { font-size: 0.88rem; color: var(--cream); }
+    .modal-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; color: var(--gold); margin-bottom: 0.5rem;
+    }
+    .modal-organizer {
+      font-size: 0.78rem; color: rgba(242,237,230,0.5);
+      margin-bottom: 1.5rem; padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(242,237,230,0.08);
+    }
+    .modal-organizer a { color: var(--gold); text-decoration: none; }
+    .modal-organizer a:hover { text-decoration: underline; }
+
+    /* MODAL MODES */
+    .modal-view-content { }
+    .modal-book-content { display: none; }
+    .modal.booking .modal-view-content { display: none; }
+    .modal.booking .modal-book-content { display: block; }
+
+    .modal-for-who {
+      font-size: 0.82rem; line-height: 1.8;
+      color: rgba(242,237,230,0.55);
+      padding: 1rem; background: rgba(242,237,230,0.04);
+      border-left: 2px solid var(--gold);
+      margin-bottom: 1.5rem; font-style: italic;
+    }
+    .modal-highlights {
+      display: flex; flex-direction: column; gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .modal-highlight {
+      display: flex; gap: 0.8rem; align-items: flex-start;
+      font-size: 0.82rem; color: rgba(242,237,230,0.7); line-height: 1.6;
+    }
+    .modal-highlight::before {
+      content: '→'; color: var(--gold); flex-shrink: 0; margin-top: 0.05rem;
+    }
+    .modal-ctas {
+      display: flex; gap: 0.8rem; margin-top: 1.8rem;
+    }
+    .modal-btn-book {
+      flex: 1; background: var(--gold); color: var(--forest);
+      border: none; padding: 0.9rem 1.5rem; cursor: pointer;
+      font-family: 'Jost', sans-serif; font-size: 0.78rem;
+      letter-spacing: 0.2em; text-transform: uppercase; transition: background 0.3s;
+    }
+    .modal-btn-book:hover { background: var(--cream); }
+    .modal-btn-back {
+      background: none; border: 1px solid rgba(242,237,230,0.2);
+      color: rgba(242,237,230,0.6); padding: 0.9rem 1.2rem; cursor: pointer;
+      font-family: 'Jost', sans-serif; font-size: 0.72rem;
+      letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.25s;
+    }
+    .modal-btn-back:hover { border-color: var(--cream); color: var(--cream); }
+
+    /* TAG VARIANTS */
+    .event-tag.retreat { background: var(--water); color: var(--cream); }
+    .event-tag.workshop { background: #5a4a3a; color: var(--cream); }
+
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center; padding: 4rem; display: none;
+      grid-column: 1 / -1;
+    }
+    .empty-state.visible { display: block; }
+    .empty-state p { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: rgba(242,237,230,0.3); }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(10,15,9,0.92);
+      z-index: 200; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+      padding: 2rem;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--moss); max-width: 560px; width: 100%;
+      padding: 3rem; position: relative;
+      transform: translateY(20px); transition: transform 0.3s;
+      max-height: 90vh; overflow-y: auto;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: none; border: none; color: var(--cream);
+      font-size: 1.5rem; cursor: pointer; line-height: 1;
+      opacity: 0.5; transition: opacity 0.2s;
+    }
+    .modal-close:hover { opacity: 1; }
+    .modal-tag {
+      font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--forest); background: var(--gold);
+      padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 1rem;
+    }
+    .modal-tag.retreat { background: var(--water); color: var(--cream); }
+    .modal-tag.workshop { background: #5a4a3a; color: var(--cream); }
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300; margin-bottom: 0.5rem;
+    }
+    .modal-date { font-size: 0.8rem; color: rgba(242,237,230,0.45); margin-bottom: 1.5rem; }
+    .modal-desc { font-size: 0.88rem; line-height: 1.8; color: rgba(242,237,230,0.7); margin-bottom: 2rem; }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(242,237,230,0.5); display: block; margin-bottom: 0.4rem; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; background: rgba(242,237,230,0.05);
+      border: 1px solid rgba(242,237,230,0.15); color: var(--cream);
+      padding: 0.8rem 1rem; font-family: 'Jost', sans-serif; font-size: 0.85rem;
+      outline: none; transition: border-color 0.3s;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { min-height: 80px; resize: vertical; }
+    .form-submit {
+      width: 100%; background: var(--gold); color: var(--forest);
+      border: none; padding: 1rem; cursor: pointer;
+      font-family: 'Jost', sans-serif; font-size: 0.78rem;
+      letter-spacing: 0.2em; text-transform: uppercase; transition: background 0.3s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--cream); }
+    .form-note { font-size: 0.72rem; color: rgba(242,237,230,0.35); margin-top: 0.8rem; line-height: 1.6; }
+
+    /* NEWSLETTER */
+    .newsletter {
+      background: #0e1810;
+      padding: 6rem 3rem;
+      text-align: center;
+    }
+    .newsletter-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .newsletter-sub {
+      font-size: 0.95rem; color: rgba(242,237,230,0.6);
+      max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.8;
+    }
+    .interest-grid {
+      display: flex; flex-wrap: wrap; gap: 0.8rem;
+      justify-content: center; margin-bottom: 2.5rem;
+    }
+    .interest-btn {
+      padding: 0.55rem 1.2rem;
+      border: 1px solid rgba(242,237,230,0.2);
+      background: none; color: rgba(242,237,230,0.65);
+      font-family: 'Jost', sans-serif; font-size: 0.78rem;
+      letter-spacing: 0.1em; cursor: pointer; transition: all 0.25s;
+    }
+    .interest-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .interest-btn.selected { background: var(--gold); border-color: var(--gold); color: var(--forest); }
+    .newsletter-form {
+      display: flex; gap: 0; max-width: 460px; margin: 0 auto;
+      flex-wrap: wrap; gap: 0.8rem;
+    }
+    .newsletter-form input {
+      flex: 1; min-width: 220px;
+      background: rgba(242,237,230,0.05);
+      border: 1px solid rgba(242,237,230,0.2);
+      color: var(--cream); padding: 0.9rem 1.2rem;
+      font-family: 'Jost', sans-serif; font-size: 0.85rem;
+      outline: none; transition: border-color 0.3s;
+    }
+    .newsletter-form input:focus { border-color: var(--gold); }
+    .newsletter-form button {
+      background: var(--gold); color: var(--forest);
+      border: none; padding: 0.9rem 1.8rem; cursor: pointer;
+      font-family: 'Jost', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.2em; text-transform: uppercase; transition: background 0.3s;
+      white-space: nowrap;
+    }
+    .newsletter-form button:hover { background: var(--cream); }
+    .newsletter-note { font-size: 0.72rem; color: rgba(242,237,230,0.3); margin-top: 1rem; }
+    .success-msg {
+      display: none; color: var(--gold);
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+      margin-top: 1.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0a0f09; padding: 2.5rem 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.3em; }
+    .footer-copy { font-size: 0.72rem; color: rgba(242,237,230,0.3); }
+    .footer-back { font-size: 0.72rem; letter-spacing: 0.15em; color: rgba(242,237,230,0.5); text-decoration: none; transition: color 0.3s; }
+    .footer-back:hover { color: var(--gold); }
+
+    /* LANG */
+    [data-lang] { display: none; }
+    .lang-it [data-lang="it"] { display: block; }
+    .lang-it [data-lang="it"].inline { display: inline; }
+    .lang-en [data-lang="en"] { display: block; }
+    .lang-en [data-lang="en"].inline { display: inline; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .filters-bar { padding: 1.2rem 1.5rem; top: 60px; }
+      .eventi-section { padding: 3rem 1.5rem; }
+      .newsletter { padding: 4rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body class="lang-it">
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mulino Verde" style="height:36px; width:auto; display:block;" /></a>
+  <ul class="nav-links">
+    <li><a href="index.html#appartamenti"><span data-lang="it" class="inline">Appartamenti</span><span data-lang="en" class="inline">Apartments</span></a></li>
+    <li><a href="index.html#forgia"><span data-lang="it" class="inline">Forgia</span><span data-lang="en" class="inline">Forge</span></a></li>
+    <li><a href="index.html#attivita"><span data-lang="it" class="inline">Attività</span><span data-lang="en" class="inline">Activities</span></a></li>
+    <li><a href="eventi.html" style="color:var(--gold)"><span data-lang="it" class="inline">Eventi</span><span data-lang="en" class="inline">Events</span></a></li>
+    <li><a href="index.html#contatti"><span data-lang="it" class="inline">Contatti</span><span data-lang="en" class="inline">Contact</span></a></li>
+  </ul>
+  <button class="lang-switch" onclick="toggleLang()">EN / IT</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-text">EVENTI</div>
+  <p class="hero-eyebrow">
+    <span data-lang="it" class="inline">Mulino Verde · Bagni di Lucca</span>
+    <span data-lang="en" class="inline">Mulino Verde · Bagni di Lucca</span>
+  </p>
+  <h1 class="hero-title">
+    <span data-lang="it">Esperienze<br><em>da vivere</em></span>
+    <span data-lang="en">Experiences<br><em>to live</em></span>
+  </h1>
+  <p class="hero-sub">
+    <span data-lang="it">Yoga, arte, vino, trekking, retreat. Scegli gli eventi che ti appartengono e iscriviti per ricevere solo quello che ti interessa.</span>
+    <span data-lang="en">Yoga, art, wine, trekking, retreats. Choose the events that speak to you and subscribe to receive only what interests you.</span>
+  </p>
+</div>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <span class="filter-label">
+    <span data-lang="it" class="inline">Filtra:</span>
+    <span data-lang="en" class="inline">Filter:</span>
+  </span>
+  <button class="filter-btn active" onclick="filterEvents('all', this)">
+    <span data-lang="it" class="inline">Tutti</span><span data-lang="en" class="inline">All</span>
+  </button>
+  <button class="filter-btn" onclick="filterEvents('yoga', this)">Yoga</button>
+  <button class="filter-btn" onclick="filterEvents('arte', this)">Arte</button>
+  <button class="filter-btn" onclick="filterEvents('wine', this)">
+    <span data-lang="it" class="inline">Vino</span><span data-lang="en" class="inline">Wine</span>
+  </button>
+  <button class="filter-btn" onclick="filterEvents('trekking', this)">Trekking</button>
+  <button class="filter-btn" onclick="filterEvents('fluviale', this)">
+    <span data-lang="it" class="inline">Attività fluviale</span><span data-lang="en" class="inline">River activities</span>
+  </button>
+  <button class="filter-btn" onclick="filterEvents('musica', this)">
+    <span data-lang="it" class="inline">Musica</span><span data-lang="en" class="inline">Music</span>
+  </button>
+  <button class="filter-btn" onclick="filterEvents('spiritualita', this)">
+    <span data-lang="it" class="inline">Spiritualità</span><span data-lang="en" class="inline">Spirituality</span>
+  </button>
+  <button class="filter-btn" onclick="filterEvents('cooking', this)">Cooking</button>
+</div>
+
+<!-- EVENTI -->
+<section class="eventi-section">
+
+  <!-- GIUGNO -->
+  <div class="month-block" id="month-giugno">
+    <div class="month-title">
+      <span data-lang="it" class="inline">Giugno 2026</span>
+      <span data-lang="en" class="inline">June 2026</span>
+      <span class="month-count month-count-giugno"></span>
+    </div>
+    <div class="eventi-grid" id="grid-giugno">
+
+      <div class="event-card" data-category="yoga" data-month="giugno"
+        data-title-it="Yoga all'alba sul fiume" data-title-en="Sunrise Yoga by the river"
+        data-date-it="7 Giugno 2026 · ore 6:30" data-date-en="June 7, 2026 · 6:30 AM"
+        data-desc-it="Inizia la giornata con una sessione di yoga sul prato del mulino, al suono del torrente Lima. Per tutti i livelli. Tappetini forniti." data-desc-en="Start the day with a yoga session on the mill lawn, to the sound of the Lima stream. All levels welcome. Mats provided."
+        data-forwho-it="Per chi vuole iniziare la giornata in modo diverso — nel silenzio del bosco, senza fretta, con il suono del fiume come sottofondo." data-forwho-en="For those who want to start the day differently — in forest silence, unhurried, with the river as a soundtrack."
+        data-highlights-it="Prato del mulino sul torrente Lima|Tappetini forniti, nessuna attrezzatura necessaria|Per tutti i livelli, anche principianti|Piccolo gruppo max 12 persone" data-highlights-en="Mill lawn on the Lima stream|Mats provided, no equipment needed|All levels including beginners|Small group max 12 people"
+        data-price-it="€18 / persona" data-price-en="€18 / person"
+        data-max-it="Max 12 persone" data-max-en="Max 12 people"
+        data-org-it="Mulino Verde" data-org-en="Mulino Verde" data-org-ig="">
+        <div class="event-tag">Yoga</div>
+        <div class="event-date"><span data-lang="it" class="inline">7 Giugno 2026 · ore 6:30</span><span data-lang="en" class="inline">June 7, 2026 · 6:30 AM</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Yoga all'alba sul fiume</span><span data-lang="en" class="inline">Sunrise Yoga by the river</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Sessione mattutina sul prato del mulino, al suono del torrente Lima. Per tutti i livelli.</span><span data-lang="en" class="inline">Morning session on the mill lawn, to the sound of the Lima stream. All levels welcome.</span></div>
+        <div class="event-footer">
+          <div class="event-price">€18 <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(242,237,230,0.45);">/ p.</span></div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-category="wine" data-month="giugno"
+        data-title-it="Degustazione vini della Garfagnana" data-title-en="Garfagnana Wine Tasting"
+        data-date-it="14 Giugno 2026 · ore 19:00" data-date-en="June 14, 2026 · 7:00 PM"
+        data-desc-it="Una serata nella forgia storica con produttori locali. Vini naturali della Garfagnana abbinati a formaggi e salumi del territorio." data-desc-en="An evening in the historic forge with local producers. Natural wines from Garfagnana paired with local cheeses and cured meats."
+        data-forwho-it="Per chi ama il vino vero — quello che ha una storia, un territorio, un volto. Per curiosi, intenditori e chi vuole scoprire la Garfagnana in un bicchiere." data-forwho-en="For those who love real wine — with a story, a land, a face. For curious minds, connoisseurs and those who want to discover Garfagnana in a glass."
+        data-highlights-it="Forgia storica del 1798, atmosfera unica con candele|3-4 produttori locali presenti|Abbinamento con formaggi e salumi della Garfagnana|Serata intima, max 16 persone" data-highlights-en="Historic 1798 forge, unique candlelit atmosphere|3-4 local producers present|Paired with local Garfagnana cheeses and cured meats|Intimate evening, max 16 people"
+        data-price-it="€25 / persona" data-price-en="€25 / person"
+        data-max-it="Max 16 persone" data-max-en="Max 16 people"
+        data-org-it="@vinoelima.toscana" data-org-en="@vinoelima.toscana"
+        data-org-ig="https://instagram.com/vinoelima.toscana">
+        <div class="event-tag">Vino</div>
+        <div class="event-date"><span data-lang="it" class="inline">14 Giugno 2026 · ore 19:00</span><span data-lang="en" class="inline">June 14, 2026 · 7:00 PM</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Degustazione vini della Garfagnana</span><span data-lang="en" class="inline">Garfagnana Wine Tasting</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Serata nella forgia storica con produttori locali. Vini naturali abbinati a prodotti del territorio.</span><span data-lang="en" class="inline">Evening in the historic forge with local producers. Natural wines paired with local products.</span></div>
+        <div class="event-footer">
+          <div class="event-price">€25 <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(242,237,230,0.45);">/ p.</span></div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-category="trekking" data-month="giugno"
+        data-title-it="Trekking nella foresta di Bagni di Lucca" data-title-en="Forest Trekking in Bagni di Lucca"
+        data-date-it="21 Giugno 2026 · ore 8:00" data-date-en="June 21, 2026 · 8:00 AM"
+        data-desc-it="Escursione guidata tra i sentieri della foresta attorno al mulino. Circa 12 km, livello medio. Colazione al rientro al Mulino Verde." data-desc-en="Guided hike through the forest trails around the mill. About 12km, medium level. Breakfast on return at Mulino Verde."
+        data-forwho-it="Per chi vuole uscire dal percorso battuto — letteralmente. Bosco vero, sentieri veri, nessuna folla. Adatto a chi è in forma discreta." data-forwho-en="For those who want to get off the beaten path — literally. Real forest, real trails, no crowds. Suitable for those in reasonable shape."
+        data-highlights-it="Sentieri nella foresta della Garfagnana, paesaggi unici|Guida locale esperta del territorio|~12 km, livello medio, durata 4-5 ore|Colazione al rientro al Mulino Verde inclusa" data-highlights-en="Garfagnana forest trails, unique landscapes|Experienced local guide|~12km, medium level, 4-5 hours|Breakfast on return at Mulino Verde included"
+        data-price-it="Gratuito" data-price-en="Free"
+        data-max-it="Max 10 persone" data-max-en="Max 10 people"
+        data-org-it="Mulino Verde" data-org-en="Mulino Verde" data-org-ig="">
+        <div class="event-tag">Trekking</div>
+        <div class="event-date"><span data-lang="it" class="inline">21 Giugno 2026 · ore 8:00</span><span data-lang="en" class="inline">June 21, 2026 · 8:00 AM</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Trekking nella foresta</span><span data-lang="en" class="inline">Forest Trekking</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Escursione guidata tra i sentieri della foresta. ~12 km, livello medio. Colazione al rientro.</span><span data-lang="en" class="inline">Guided hike through forest trails. ~12km, medium level. Breakfast on return.</span></div>
+        <div class="event-footer">
+          <span class="event-price-free"><span data-lang="it" class="inline">Gratuito</span><span data-lang="en" class="inline">Free</span></span>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LUGLIO -->
+  <div class="month-block" id="month-luglio">
+    <div class="month-title">
+      <span data-lang="it" class="inline">Luglio 2026</span>
+      <span data-lang="en" class="inline">July 2026</span>
+      <span class="month-count month-count-luglio"></span>
+    </div>
+    <div class="eventi-grid" id="grid-luglio">
+
+      <div class="event-card" data-category="retreat" data-month="luglio"
+        data-title-it="Weekend Retreat: Disconnetti e Ritrova te stesso" data-title-en="Weekend Retreat: Disconnect & Reconnect"
+        data-date-it="4–6 Luglio 2026 · 3 giorni" data-date-en="July 4–6, 2026 · 3 days"
+        data-desc-it="Un fine settimana di immersione nella natura: meditazione, yoga, camminate silenziose, cene condivise nella forgia. Niente telefoni, solo presenza." data-desc-en="A weekend immersed in nature: meditation, yoga, silent walks, shared dinners in the forge. No phones, just presence."
+        data-forwho-it="Per chi sente che ha bisogno di fermarsi — non in un hotel, non in spa, ma in un posto vero. Per chi vuole tornare a casa diverso da come è partito." data-forwho-en="For those who feel they need to stop — not in a hotel, not a spa, but a real place. For those who want to come back different from how they left."
+        data-highlights-it="3 giorni e 2 notti al Mulino Verde, pernottamento incluso|Meditazione mattutina e yoga sul prato del fiume|Cene condivise nella forgia storica a lume di candela|Camminate silenziose nel bosco, niente programma fisso|Telefoni spenti, presenza totale" data-highlights-en="3 days and 2 nights at Mulino Verde, accommodation included|Morning meditation and yoga on the riverside lawn|Shared dinners by candlelight in the historic forge|Silent forest walks, no fixed schedule|Phones off, total presence"
+        data-price-it="€280 / persona · pernottamento incluso" data-price-en="€280 / person · accommodation included"
+        data-max-it="Max 8 persone" data-max-en="Max 8 people"
+        data-org-it="@retreat.toscana.wild" data-org-en="@retreat.toscana.wild"
+        data-org-ig="https://instagram.com/retreat.toscana.wild">
+        <div class="event-tag retreat">Retreat</div>
+        <div class="event-date"><span data-lang="it" class="inline">4–6 Luglio 2026 · 3 giorni</span><span data-lang="en" class="inline">July 4–6, 2026 · 3 days</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Weekend Retreat: Disconnetti</span><span data-lang="en" class="inline">Weekend Retreat: Disconnect</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Meditazione, yoga, camminate silenziose e cene condivise nella forgia storica. Niente telefoni.</span><span data-lang="en" class="inline">Meditation, yoga, silent walks and shared dinners in the historic forge. No phones.</span></div>
+        <div class="event-footer">
+          <div class="event-price">€280 <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(242,237,230,0.45);">/ p.</span></div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-category="arte" data-month="luglio"
+        data-title-it="Workshop di pittura en plein air" data-title-en="Plein Air Painting Workshop"
+        data-date-it="12 Luglio 2026 · ore 10:00" data-date-en="July 12, 2026 · 10:00 AM"
+        data-desc-it="Dipingere il paesaggio della Garfagnana sul prato del mulino. Materiali forniti. Adatto a principianti e a chi dipinge già." data-desc-en="Paint the Garfagnana landscape on the mill lawn. Materials provided. Suitable for beginners and experienced painters."
+        data-forwho-it="Per chi vuole dipingere — o ha sempre voluto farlo. Nessun giudizio, nessuna aspettativa. Solo colori, un pennello e uno dei paesaggi più belli della Toscana." data-forwho-en="For those who want to paint — or always wanted to. No judgement, no expectations. Just colours, a brush and one of Tuscany's most beautiful landscapes."
+        data-highlights-it="Prato del mulino come studio en plein air|Tutti i materiali inclusi (tela, colori, pennelli)|Guida artistica con istruttore locale|Piccolo gruppo, attenzione individuale|Adatto a tutti i livelli inclusi principianti assoluti" data-highlights-en="Mill lawn as open-air studio|All materials included (canvas, paints, brushes)|Artistic guidance with local instructor|Small group, individual attention|Suitable for all levels including absolute beginners"
+        data-price-it="€35 / persona · materiali inclusi" data-price-en="€35 / person · materials included"
+        data-max-it="Max 10 persone" data-max-en="Max 10 people"
+        data-org-it="@arte.garfagnana" data-org-en="@arte.garfagnana"
+        data-org-ig="https://instagram.com/arte.garfagnana">
+        <div class="event-tag">Arte</div>
+        <div class="event-date"><span data-lang="it" class="inline">12 Luglio 2026 · ore 10:00</span><span data-lang="en" class="inline">July 12, 2026 · 10:00 AM</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Pittura en plein air</span><span data-lang="en" class="inline">Plein Air Painting</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Dipingere il paesaggio della Garfagnana sul prato del mulino. Materiali forniti. Tutti i livelli.</span><span data-lang="en" class="inline">Paint the Garfagnana landscape on the mill lawn. Materials provided. All levels.</span></div>
+        <div class="event-footer">
+          <div class="event-price">€35 <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(242,237,230,0.45);">/ p.</span></div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-category="musica" data-month="luglio"
+        data-title-it="Concerto nella forgia: musica acustica" data-title-en="Forge Concert: Acoustic Music"
+        data-date-it="25 Luglio 2026 · ore 21:00" data-date-en="July 25, 2026 · 9:00 PM"
+        data-desc-it="Un concerto intimo nella forgia storica del 1798. Musica acustica, candele, vino. Un'atmosfera impossibile da trovare altrove." data-desc-en="An intimate concert in the 1798 historic forge. Acoustic music, candles, wine. An atmosphere impossible to find elsewhere."
+        data-forwho-it="Per chi ama la musica vissuta, non consumata. Per chi vuole sentire le note rimbalzare su muri di pietra vecchi di secoli, seduto per terra su un cuscino, con un bicchiere in mano." data-forwho-en="For those who love music lived, not consumed. For those who want to hear notes bounce off centuries-old stone walls, sitting on a cushion on the floor, glass in hand."
+        data-highlights-it="Forgia del 1798, acustica naturale della pietra|Concerto intimo max 20 persone, distanza zero con l'artista|Calice di vino locale incluso nel prezzo|Inizio ore 21:00, durata circa 90 minuti" data-highlights-en="1798 forge, natural stone acoustics|Intimate concert max 20 people, zero distance from artist|Glass of local wine included|Starts 9:00 PM, approximately 90 minutes"
+        data-price-it="€20 / persona · calice di vino incluso" data-price-en="€20 / person · glass of wine included"
+        data-max-it="Max 20 persone" data-max-en="Max 20 people"
+        data-org-it="Mulino Verde" data-org-en="Mulino Verde" data-org-ig="">
+        <div class="event-tag">Musica</div>
+        <div class="event-date"><span data-lang="it" class="inline">25 Luglio 2026 · ore 21:00</span><span data-lang="en" class="inline">July 25, 2026 · 9:00 PM</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Concerto nella forgia</span><span data-lang="en" class="inline">Forge Concert</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Musica acustica, candele, vino nella forgia del 1798. Un'atmosfera impossibile da trovare altrove.</span><span data-lang="en" class="inline">Acoustic music, candles, wine in the 1798 forge. An atmosphere impossible to find elsewhere.</span></div>
+        <div class="event-footer">
+          <div class="event-price">€20 <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(242,237,230,0.45);">/ p.</span></div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AGOSTO -->
+  <div class="month-block" id="month-agosto">
+    <div class="month-title">
+      <span data-lang="it" class="inline">Agosto 2026</span>
+      <span data-lang="en" class="inline">August 2026</span>
+      <span class="month-count month-count-agosto"></span>
+    </div>
+    <div class="eventi-grid" id="grid-agosto">
+
+      <div class="event-card" data-category="workshop" data-month="agosto"
+        data-title-it="Workshop di ceramica nel bosco" data-title-en="Ceramics Workshop in the Forest"
+        data-date-it="8 Agosto 2026 · ore 10:00" data-date-en="August 8, 2026 · 10:00 AM"
+        data-desc-it="Modellare l'argilla nel verde della foresta toscana. Un workshop manuale e creativo in un contesto unico. Materiali e forno inclusi." data-desc-en="Shape clay in the Tuscan forest. A hands-on creative workshop in a unique setting. Materials and kiln included."
+        data-forwho-it="Per chi vuole fare qualcosa con le mani — davvero. Per chi è stanco di guardare schermi e vuole creare qualcosa di concreto, imperfetto e suo." data-forwho-en="For those who want to make something with their hands — really. For those tired of screens who want to create something concrete, imperfect and their own."
+        data-highlights-it="Workshop nel giardino del mulino, immerso nel verde|Tutti i materiali inclusi: argilla, strumenti, cottura|Guida ceramista professionista|Piccolo gruppo max 8 persone|Ogni partecipante porta a casa il proprio pezzo finito" data-highlights-en="Workshop in the mill garden, surrounded by nature|All materials included: clay, tools, firing|Professional ceramicist guide|Small group max 8 people|Each participant takes home their finished piece"
+        data-price-it="€45 / persona · materiali e cottura inclusi" data-price-en="€45 / person · materials and firing included"
+        data-max-it="Max 8 persone" data-max-en="Max 8 people"
+        data-org-it="@ceramica.lucca" data-org-en="@ceramica.lucca"
+        data-org-ig="https://instagram.com/ceramica.lucca">
+        <div class="event-tag workshop">Workshop</div>
+        <div class="event-date"><span data-lang="it" class="inline">8 Agosto 2026 · ore 10:00</span><span data-lang="en" class="inline">August 8, 2026 · 10:00 AM</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Ceramica nel bosco</span><span data-lang="en" class="inline">Ceramics in the Forest</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Modellare l'argilla nel verde della foresta toscana. Contesto unico, materiali inclusi.</span><span data-lang="en" class="inline">Shape clay in the Tuscan forest. Unique setting, materials included.</span></div>
+        <div class="event-footer">
+          <div class="event-price">€45 <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(242,237,230,0.45);">/ p.</span></div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-category="fluviale yoga" data-month="agosto"
+        data-title-it="Yoga e rafting: corpo e adrenalina" data-title-en="Yoga & Rafting: Body and Adrenaline"
+        data-date-it="16 Agosto 2026 · Full day" data-date-en="August 16, 2026 · Full day"
+        data-desc-it="Mattina: sessione di yoga sul prato. Pomeriggio: rafting sul torrente Lima. Due esperienze opposte nella stessa giornata." data-desc-en="Morning: yoga session on the lawn. Afternoon: rafting on the Lima stream. Two opposite experiences in one day."
+        data-forwho-it="Per chi vuole sentire tutto in un giorno solo. La calma del corpo al mattino e l'adrenalina del fiume al pomeriggio. Due stati d'essere, un'unica giornata indimenticabile." data-forwho-en="For those who want to feel everything in one day. Body calm in the morning, river adrenaline in the afternoon. Two states of being, one unforgettable day."
+        data-highlights-it="Yoga mattutino sul prato del mulino (ore 7:00–9:00)|Colazione condivisa dopo la sessione|Rafting sul torrente Lima con guida esperta (pomeriggio)|Tutto il necessario fornito: tappetino, muta, casco, pagaia|Giornata completa, pranzo al sacco incluso" data-highlights-en="Morning yoga on the mill lawn (7:00–9:00 AM)|Shared breakfast after the session|Rafting on the Lima stream with expert guide (afternoon)|Everything provided: mat, wetsuit, helmet, paddle|Full day, packed lunch included"
+        data-price-it="€65 / persona · yoga + rafting + colazione" data-price-en="€65 / person · yoga + rafting + breakfast"
+        data-max-it="Max 12 persone" data-max-en="Max 12 people"
+        data-org-it="Mulino Verde + Firenze Rafting" data-org-en="Mulino Verde + Firenze Rafting" data-org-ig="">
+        <div style="display:flex;gap:0.4rem;margin-bottom:1rem;flex-wrap:wrap;">
+          <div class="event-tag" style="margin-bottom:0;">Yoga</div>
+          <div class="event-tag" style="margin-bottom:0;">Attività fluviale</div>
+        </div>
+        <div class="event-date"><span data-lang="it" class="inline">16 Agosto 2026 · Full day</span><span data-lang="en" class="inline">August 16, 2026 · Full day</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Yoga + Rafting</span><span data-lang="en" class="inline">Yoga + Rafting</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Yoga al mattino sul prato del mulino, rafting nel pomeriggio sul Lima. Due esperienze opposte, un solo giorno.</span><span data-lang="en" class="inline">Morning yoga on the mill lawn, afternoon rafting on the Lima. Two opposite experiences, one day.</span></div>
+        <div class="event-footer">
+          <div class="event-price">€65 <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(242,237,230,0.45);">/ p.</span></div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-category="retreat" data-month="agosto"
+        data-title-it="Retreat creativo: scrittura e silenzio" data-title-en="Creative Retreat: Writing & Silence"
+        data-date-it="22–24 Agosto 2026 · 3 giorni" data-date-en="August 22–24, 2026 · 3 days"
+        data-desc-it="Tre giorni per chi vuole scrivere, pensare e creare lontano dal rumore. Sessioni guidate di scrittura creativa, letture serali, silenzio." data-desc-en="Three days for those who want to write, think and create away from noise. Guided creative writing sessions, evening readings, silence."
+        data-forwho-it="Per scrittori, diaristi, giornalisti e persone che non si sono mai considerate tali. Per chi ha qualcosa da dire ma non riesce a trovare il silenzio per dirlo." data-forwho-en="For writers, diarists, journalists and people who've never considered themselves any of those. For those who have something to say but can't find the silence to say it."
+        data-highlights-it="3 giorni e 2 notti al Mulino Verde, pernottamento incluso|Sessioni guidate di scrittura creativa ogni mattina|Letture serali condivise nella forgia al lume di candela|Tempo libero non strutturato per scrivere da soli nel bosco|Piccolo gruppo max 6 persone: attenzione reale, non di massa" data-highlights-en="3 days and 2 nights at Mulino Verde, accommodation included|Guided creative writing sessions each morning|Shared evening readings by candlelight in the forge|Unstructured free time to write alone in the forest|Small group max 6 people: real attention, not mass market"
+        data-price-it="€320 / persona · pernottamento incluso" data-price-en="€320 / person · accommodation included"
+        data-max-it="Max 6 persone" data-max-en="Max 6 people"
+        data-org-it="@scrittura.selvaggia" data-org-en="@scrittura.selvaggia"
+        data-org-ig="https://instagram.com/scrittura.selvaggia">
+        <div class="event-tag retreat">Retreat</div>
+        <div class="event-date"><span data-lang="it" class="inline">22–24 Agosto 2026 · 3 giorni</span><span data-lang="en" class="inline">August 22–24, 2026 · 3 days</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Retreat: Scrittura e Silenzio</span><span data-lang="en" class="inline">Retreat: Writing & Silence</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Tre giorni per scrivere, pensare, creare lontano dal rumore. Sessioni guidate, letture serali, silenzio.</span><span data-lang="en" class="inline">Three days to write, think, create. Guided sessions, evening readings, silence.</span></div>
+        <div class="event-footer">
+          <div class="event-price">€320 <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(242,237,230,0.45);">/ p.</span></div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SETTEMBRE -->
+  <div class="month-block" id="month-settembre">
+    <div class="month-title">
+      <span data-lang="it" class="inline">Settembre 2026</span>
+      <span data-lang="en" class="inline">September 2026</span>
+    </div>
+    <div class="eventi-grid" id="grid-settembre">
+
+      <div class="event-card" data-category="spiritualita" data-month="settembre"
+        data-title-it="Cerchio di cacao e meditazione guidata" data-title-en="Cacao Ceremony & Guided Meditation"
+        data-date-it="6 Settembre 2026 · ore 18:00" data-date-en="September 6, 2026 · 6:00 PM"
+        data-desc-it="Una cerimonia di cacao tradizionale nella forgia storica, seguita da una meditazione guidata. Un rito antico in uno spazio che porta storia dentro le mura." data-desc-en="A traditional cacao ceremony in the historic forge, followed by guided meditation. An ancient rite in a space that carries history within its walls."
+        data-forwho-it="Per chi sente il bisogno di rallentare davvero — non meditare da un'app, ma fermarsi in uno spazio antico con altre persone. Per chi è curioso del sacro senza essere necessariamente religioso." data-forwho-en="For those who need to truly slow down — not meditating through an app, but stopping in an ancient space with others. For those curious about the sacred without being necessarily religious."
+        data-highlights-it="Forgia storica del 1798, candele e incenso|Cerimonia del cacao con cacao crudo biologico|Meditazione guidata di 45 minuti|Cerchio di condivisione finale|Max 14 persone: spazio intimo e contenuto" data-highlights-en="Historic 1798 forge, candles and incense|Cacao ceremony with organic raw cacao|45-minute guided meditation|Closing sharing circle|Max 14 people: intimate and contained space"
+        data-price-it="€28 / persona · cacao incluso" data-price-en="€28 / person · cacao included"
+        data-max-it="Max 14 persone" data-max-en="Max 14 people"
+        data-org-it="@sacro.selvatico" data-org-en="@sacro.selvatico"
+        data-org-ig="https://instagram.com/sacro.selvatico">
+        <div class="event-tag">Spiritualità</div>
+        <div class="event-date"><span data-lang="it" class="inline">6 Settembre 2026 · ore 18:00</span><span data-lang="en" class="inline">September 6, 2026 · 6:00 PM</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Cerchio di cacao e meditazione</span><span data-lang="en" class="inline">Cacao Ceremony & Meditation</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Cerimonia del cacao nella forgia storica e meditazione guidata. Un rito antico in uno spazio che porta storia nelle mura.</span><span data-lang="en" class="inline">Cacao ceremony in the historic forge and guided meditation. An ancient rite in a space with history in its walls.</span></div>
+        <div class="event-footer">
+          <div class="event-price">€28 <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(242,237,230,0.45);">/ p.</span></div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-category="cooking" data-month="settembre"
+        data-title-it="Cucina della Garfagnana: ricette di montagna" data-title-en="Garfagnana Kitchen: Mountain Recipes"
+        data-date-it="13 Settembre 2026 · ore 10:00" data-date-en="September 13, 2026 · 10:00 AM"
+        data-desc-it="Un mattino in cucina con una cuoca locale per imparare i piatti storici della Garfagnana: tordelli, farro, castagnaccio. Poi si mangia insieme quello che si è fatto." data-desc-en="A morning in the kitchen with a local cook learning historic Garfagnana dishes: tordelli, farro, castagnaccio. Then you eat together what you made."
+        data-forwho-it="Per chi ama cucinare — o mangiare bene. Per chi vuole portare a casa qualcosa di vero: non solo una ricetta, ma un modo di stare in cucina che sa di luogo." data-forwho-en="For those who love to cook — or eat well. For those who want to take home something real: not just a recipe, but a way of being in the kitchen that tastes of place."
+        data-highlights-it="Cucina del Mulino Verde con cuoca locale esperta|Ricette tradizionali della Garfagnana (tordelli, farro, castagnaccio)|Ingredienti locali e stagionali, alcuni dal territorio|Pranzo condiviso con tutto quello che avete cucinato|Ricettario cartaceo da portare a casa" data-highlights-en="Mulino Verde kitchen with expert local cook|Traditional Garfagnana recipes (tordelli, farro, castagnaccio)|Local seasonal ingredients, some from the territory|Shared lunch with everything you cooked|Printed recipe booklet to take home"
+        data-price-it="€55 / persona · ingredienti e pranzo inclusi" data-price-en="€55 / person · ingredients and lunch included"
+        data-max-it="Max 8 persone" data-max-en="Max 8 people"
+        data-org-it="Mulino Verde" data-org-en="Mulino Verde" data-org-ig="">
+        <div class="event-tag">Cooking</div>
+        <div class="event-date"><span data-lang="it" class="inline">13 Settembre 2026 · ore 10:00</span><span data-lang="en" class="inline">September 13, 2026 · 10:00 AM</span></div>
+        <div class="event-title"><span data-lang="it" class="inline">Cucina della Garfagnana</span><span data-lang="en" class="inline">Garfagnana Kitchen</span></div>
+        <div class="event-desc"><span data-lang="it" class="inline">Ricette storiche della Garfagnana con una cuoca locale. Si cucina insieme, poi si mangia quello che si è fatto.</span><span data-lang="en" class="inline">Historic Garfagnana recipes with a local cook. Cook together, then eat what you made.</span></div>
+        <div class="event-footer">
+          <div class="event-price">€55 <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(242,237,230,0.45);">/ p.</span></div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="event-cta" style="background:rgba(184,148,90,0.1);" onclick="openInfo(this.closest('.event-card'))"><span data-lang="it" class="inline">Scopri</span><span data-lang="en" class="inline">Info</span></button>
+            <button class="event-cta" onclick="openBook(this.closest('.event-card'))"><span data-lang="it" class="inline">Prenota</span><span data-lang="en" class="inline">Book</span></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="empty-state" class="empty-state">
+    <p><span data-lang="it" class="inline">Nessun evento trovato per questo filtro.</span><span data-lang="en" class="inline">No events found for this filter.</span></p>
+  </div>
+
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-tag" id="modal-tag"></div>
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-date" id="modal-date"></div>
+
+    <!-- VIEW MODE -->
+    <div class="modal-view-content">
+      <div class="modal-for-who" id="modal-forwho"></div>
+      <div class="modal-highlights" id="modal-highlights"></div>
+      <div class="modal-details">
+        <div class="modal-detail">
+          <div class="modal-detail-label"><span data-lang="it" class="inline">Prezzo</span><span data-lang="en" class="inline">Price</span></div>
+          <div class="modal-detail-val" id="modal-price"></div>
+        </div>
+        <div class="modal-detail">
+          <div class="modal-detail-label"><span data-lang="it" class="inline">Capienza</span><span data-lang="en" class="inline">Capacity</span></div>
+          <div class="modal-detail-val" id="modal-max"></div>
+        </div>
+      </div>
+      <div class="modal-organizer" id="modal-organizer"></div>
+      <div class="modal-ctas">
+        <button class="modal-btn-book" onclick="switchToBook()">
+          <span data-lang="it" class="inline">Prenota ora</span><span data-lang="en" class="inline">Book now</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- BOOK MODE -->
+    <div class="modal-book-content">
+      <form id="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="evento" id="form-evento" />
+        <input type="hidden" name="data_evento" id="form-data" />
+        <div class="form-group">
+          <label><span data-lang="it" class="inline">Nome e cognome</span><span data-lang="en" class="inline">Full name</span></label>
+          <input type="text" name="nome" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label><span data-lang="it" class="inline">Telefono (opzionale)</span><span data-lang="en" class="inline">Phone (optional)</span></label>
+          <input type="tel" name="telefono" />
+        </div>
+        <div class="form-group">
+          <label><span data-lang="it" class="inline">Numero di persone</span><span data-lang="en" class="inline">Number of people</span></label>
+          <input type="number" name="persone" min="1" max="30" value="1" required />
+        </div>
+        <div class="form-group">
+          <label><span data-lang="it" class="inline">Note o domande</span><span data-lang="en" class="inline">Notes or questions</span></label>
+          <textarea name="messaggio"></textarea>
+        </div>
+        <div class="modal-ctas">
+          <button type="button" class="modal-btn-back" onclick="switchToView()">← <span data-lang="it" class="inline">Torna</span><span data-lang="en" class="inline">Back</span></button>
+          <button type="submit" class="modal-btn-book"><span data-lang="it" class="inline">Invia richiesta</span><span data-lang="en" class="inline">Send request</span></button>
+        </div>
+        <p class="form-note" style="margin-top:1rem; padding:0.8rem 1rem; background:rgba(184,148,90,0.08); border-left:2px solid var(--gold); line-height:1.7;">
+          ✓ <span data-lang="it" class="inline">Riceverai una risposta entro 24 ore per confermare disponibilità e dettagli. Nessun pagamento richiesto ora.</span>
+          <span data-lang="en" class="inline">You'll receive a reply within 24 hours to confirm availability and details. No payment required now.</span>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <span style="font-size:0.68rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:1rem;">
+    <span data-lang="it" class="inline">Resta aggiornato</span>
+    <span data-lang="en" class="inline">Stay updated</span>
+  </span>
+  <h2 class="newsletter-title">
+    <span data-lang="it">Solo gli eventi<br><em style="font-style:italic; color:var(--sage);">che ti interessano</em></span>
+    <span data-lang="en">Only the events<br><em style="font-style:italic; color:var(--sage);">that interest you</em></span>
+  </h2>
+  <p class="newsletter-sub">
+    <span data-lang="it">Scegli le tue categorie preferite. Ti mandiamo una selezione personalizzata quando ci sono novità.</span>
+    <span data-lang="en">Choose your favourite categories. We'll send you a personalised selection when there's something new.</span>
+  </p>
+
+  <div class="interest-grid">
+    <button class="interest-btn" onclick="toggleInterest(this)" data-interest="yoga">Yoga</button>
+    <button class="interest-btn" onclick="toggleInterest(this)" data-interest="arte">Arte</button>
+    <button class="interest-btn" onclick="toggleInterest(this)" data-interest="wine"><span data-lang="it" class="inline">Vino</span><span data-lang="en" class="inline">Wine</span></button>
+    <button class="interest-btn" onclick="toggleInterest(this)" data-interest="trekking">Trekking</button>
+    <button class="interest-btn" onclick="toggleInterest(this)" data-interest="fluviale"><span data-lang="it" class="inline">Attività fluviale</span><span data-lang="en" class="inline">River activities</span></button>
+    <button class="interest-btn" onclick="toggleInterest(this)" data-interest="musica"><span data-lang="it" class="inline">Musica</span><span data-lang="en" class="inline">Music</span></button>
+    <button class="interest-btn" onclick="toggleInterest(this)" data-interest="spiritualita"><span data-lang="it" class="inline">Spiritualità</span><span data-lang="en" class="inline">Spirituality</span></button>
+    <button class="interest-btn" onclick="toggleInterest(this)" data-interest="cooking">Cooking</button>
+  </div>
+
+  <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="handleNewsletter(event)">
+    <input type="hidden" name="interessi" id="newsletter-interests" value="" />
+    <input type="hidden" name="_subject" value="Nuova iscrizione newsletter Mulino Verde" />
+    <input type="email" name="email" placeholder="La tua email / Your email" required />
+    <button type="submit">
+      <span data-lang="it" class="inline">Iscriviti</span>
+      <span data-lang="en" class="inline">Subscribe</span>
+    </button>
+  </form>
+  <p class="newsletter-note">
+    <span data-lang="it" class="inline">Niente spam. Solo eventi selezionati. Disiscrizione facile.</span>
+    <span data-lang="en" class="inline">No spam. Only curated events. Easy unsubscribe.</span>
+  </p>
+  <p class="success-msg" id="success-msg">
+    <span data-lang="it" class="inline">Grazie! Ti terremo aggiornato.</span>
+    <span data-lang="en" class="inline">Thank you! We'll keep you posted.</span>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">MULINO VERDE · 1798</div>
+  <div class="footer-copy">© 2026 Mulino Verde · Bagni di Lucca</div>
+  <a href="index.html" class="footer-back">← <span data-lang="it" class="inline">Torna al sito</span><span data-lang="en" class="inline">Back to site</span></a>
+</footer>
+
+<script>
+  // LANG
+  function toggleLang() {
+    document.body.classList.toggle('lang-it');
+    document.body.classList.toggle('lang-en');
+  }
+
+  // FILTER
+  function filterEvents(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.event-card');
+    cards.forEach(card => {
+      const cats = card.dataset.category || '';
+      if (cat === 'all' || cats.split(' ').includes(cat)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    ['giugno','luglio','agosto','settembre'].forEach(month => {
+      const block = document.getElementById('month-' + month);
+      if (!block) return;
+      const visible = block.querySelectorAll('.event-card:not(.hidden)').length;
+      block.style.display = visible === 0 ? 'none' : '';
+    });
+  }
+
+  // MODAL
+  let currentCard = null;
+
+  function populateModal(card) {
+    const isIt = document.body.classList.contains('lang-it');
+    const tagEl = card.querySelector('.event-tag');
+    document.getElementById('modal-tag').textContent = tagEl.textContent.trim();
+    document.getElementById('modal-tag').className = 'modal-tag ' + (tagEl.classList.contains('retreat') ? 'retreat' : tagEl.classList.contains('workshop') ? 'workshop' : '');
+    document.getElementById('modal-title').textContent = isIt ? card.dataset.titleIt : card.dataset.titleEn;
+    document.getElementById('modal-date').textContent = isIt ? card.dataset.dateIt : card.dataset.dateEn;
+    document.getElementById('modal-price').textContent = isIt ? card.dataset.priceIt : card.dataset.priceEn;
+    document.getElementById('modal-max').textContent = isIt ? card.dataset.maxIt : card.dataset.maxEn;
+    document.getElementById('form-evento').value = isIt ? card.dataset.titleIt : card.dataset.titleEn;
+    document.getElementById('form-data').value = isIt ? card.dataset.dateIt : card.dataset.dateEn;
+    // For who
+    document.getElementById('modal-forwho').textContent = isIt ? card.dataset.forwhoIt : card.dataset.forwhoEn;
+    // Highlights
+    const highlights = (isIt ? card.dataset.highlightsIt : card.dataset.highlightsEn).split('|');
+    const hEl = document.getElementById('modal-highlights');
+    hEl.innerHTML = highlights.map(h => `<div class="modal-highlight">${h}</div>`).join('');
+    // Organizer
+    const orgEl = document.getElementById('modal-organizer');
+    const orgName = isIt ? card.dataset.orgIt : card.dataset.orgEn;
+    const orgIg = card.dataset.orgIg;
+    const orgLabel = isIt ? 'Organizzato da' : 'Organised by';
+    orgEl.innerHTML = orgIg ? `${orgLabel}: <a href="${orgIg}" target="_blank">${orgName}</a>` : `${orgLabel}: ${orgName}`;
+  }
+
+  function openInfo(card) {
+    currentCard = card;
+    populateModal(card);
+    document.getElementById('modal').classList.remove('booking');
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function openBook(card) {
+    currentCard = card;
+    populateModal(card);
+    document.getElementById('modal').classList.add('booking');
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function switchToBook() {
+    document.getElementById('modal').classList.add('booking');
+    document.getElementById('modal').scrollTop = 0;
+  }
+
+  function switchToView() {
+    document.getElementById('modal').classList.remove('booking');
+    document.getElementById('modal').scrollTop = 0;
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // NEWSLETTER INTERESTS
+  const selectedInterests = new Set();
+  function toggleInterest(btn) {
+    const interest = btn.dataset.interest;
+    if (selectedInterests.has(interest)) {
+      selectedInterests.delete(interest);
+      btn.classList.remove('selected');
+    } else {
+      selectedInterests.add(interest);
+      btn.classList.add('selected');
+    }
+    document.getElementById('newsletter-interests').value = [...selectedInterests].join(', ');
+  }
+
+  function handleNewsletter(e) {
+    if (selectedInterests.size === 0) {
+      document.getElementById('newsletter-interests').value = 'tutti';
+    }
+    // Let Formspree handle the actual submission
+    // Show success after short delay
+    setTimeout(() => {
+      document.getElementById('newsletter-form').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    }, 800);
+  }
+</script>
+</body>
+</html>
