@@ -157,11 +157,15 @@
     .event-card.hidden { display: none; }
 
     .event-tag {
-      display: inline-block;
+      display: inline-block !important;
       font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
       color: var(--forest); background: var(--gold);
-      padding: 0.2rem 0.6rem; margin-bottom: 1rem;
+      padding: 0.2rem 0.6rem; margin-bottom: 0.4rem; margin-right: 0.3rem;
+      white-space: nowrap; width: auto !important; max-width: fit-content !important;
     }
+    .event-tag.retreat { background: var(--water); color: var(--cream); }
+    .event-tag.workshop { background: #5a4a3a; color: var(--cream); }
+    .event-tags-wrapper { margin-bottom: 0.8rem; }
     .event-date {
       font-size: 0.75rem; color: rgba(242,237,230,0.4);
       letter-spacing: 0.1em; margin-bottom: 0.6rem;
@@ -422,6 +426,9 @@
       .eventi-section { padding: 3rem 1.5rem; }
       .newsletter { padding: 4rem 1.5rem; }
       footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+      .eventi-grid { grid-template-columns: 1fr; gap: 1.5px; }
+      .event-card { padding: 1.8rem; }
+      .month-title { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -687,7 +694,7 @@
         data-price-it="€65 / persona · yoga + rafting + colazione" data-price-en="€65 / person · yoga + rafting + breakfast"
         data-max-it="Max 12 persone" data-max-en="Max 12 people"
         data-org-it="Mulino Verde + Firenze Rafting" data-org-en="Mulino Verde + Firenze Rafting" data-org-ig="">
-        <div style="display:flex;gap:0.4rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <div style="margin-bottom:1rem;">
           <div class="event-tag" style="margin-bottom:0;">Yoga</div>
           <div class="event-tag" style="margin-bottom:0;">Attività fluviale</div>
         </div>
