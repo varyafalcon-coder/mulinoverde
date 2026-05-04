@@ -59,9 +59,9 @@
 
     /* HERO */
     .hero {
-      min-height: 55vh;
+      min-height: 60vh;
       display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 0 3rem 5rem;
+      padding: 14rem 3rem 5rem;
       position: relative; overflow: hidden;
       background: linear-gradient(160deg, #0e1810 0%, #1a2e1a 50%, #2d3d20 100%);
     }
@@ -157,10 +157,11 @@
     .event-card.hidden { display: none; }
 
     .event-tag {
-      display: inline-block;
+      display: block;
       font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
       color: var(--forest); background: var(--gold);
-      padding: 0.2rem 0.6rem; margin-bottom: 1rem;
+      padding: 0.3rem 0.6rem; margin-bottom: 1rem;
+      width: 100%;
     }
     .event-date {
       font-size: 0.75rem; color: rgba(242,237,230,0.4);
@@ -178,15 +179,16 @@
     }
     .event-footer {
       display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 0.8rem;
-      margin-top: auto;
+      flex-wrap: nowrap; gap: 0.8rem;
+      margin-top: auto; width: 100%;
     }
+    .event-footer > div { display: flex; gap: 0.5rem; align-items: center; }
     .event-meta { font-size: 0.75rem; color: rgba(242,237,230,0.4); }
     .event-cta {
       font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--gold); background: none; border: 1px solid var(--gold);
       padding: 0.4rem 1rem; cursor: pointer; font-family: 'Jost', sans-serif;
-      transition: all 0.25s;
+      transition: all 0.25s; white-space: nowrap;
     }
     .event-cta:hover { background: var(--gold); color: var(--forest); }
 
