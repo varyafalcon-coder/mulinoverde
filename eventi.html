@@ -136,7 +136,7 @@
       color: var(--gold); text-transform: uppercase;
     }
 
-    .eventi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5px; }
+    .eventi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; }
 
     .event-card {
       background: var(--moss);
@@ -144,6 +144,7 @@
       position: relative; overflow: hidden;
       transition: background 0.3s;
       cursor: pointer;
+      display: flex; flex-direction: column;
     }
     .event-card:hover { background: #2a3a25; }
     .event-card::after {
@@ -173,10 +174,12 @@
     .event-desc {
       font-size: 0.82rem; line-height: 1.7;
       color: rgba(242,237,230,0.6); margin-bottom: 1.5rem;
+      flex: 1;
     }
     .event-footer {
       display: flex; justify-content: space-between; align-items: center;
       flex-wrap: wrap; gap: 0.8rem;
+      margin-top: auto;
     }
     .event-meta { font-size: 0.75rem; color: rgba(242,237,230,0.4); }
     .event-cta {
@@ -425,7 +428,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Mulino Verde" style="height:36px; width:auto; display:block;" /></a>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Mulino Verde" style="height:95px; width:auto; display:block;" /></a>
   <ul class="nav-links">
     <li><a href="index.html#appartamenti"><span data-lang="it" class="inline">Appartamenti</span><span data-lang="en" class="inline">Apartments</span></a></li>
     <li><a href="index.html#forgia"><span data-lang="it" class="inline">Forgia</span><span data-lang="en" class="inline">Forge</span></a></li>
