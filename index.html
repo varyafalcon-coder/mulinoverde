@@ -367,7 +367,7 @@
     }
 
     /* LOGO IMAGE */
-    .nav-logo img { height: 95px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .nav-logo img { height: 38px; width: auto; display: block; filter: brightness(0) invert(1); }
 
     /* HERO PHOTO OVERLAY */
     .hero-photo {
@@ -451,10 +451,6 @@
       transition: border-color 0.2s;
     }
     .act-link:hover { border-color: var(--gold); }
-    .act-img {
-      width: 100%; aspect-ratio: 4/3; object-fit: cover;
-      display: block; margin-bottom: 1.5rem;
-    }
   </style>
 </head>
 <body class="lang-it">
@@ -464,9 +460,10 @@
   <a href="#" class="nav-logo"><img src="logo.png" alt="Mulino Verde" /></a>
   <ul class="nav-links">
     <li><a href="#appartamenti"><span data-lang="it" class="inline">Appartamenti</span><span data-lang="en" class="inline">Apartments</span></a></li>
-    <li><a href="#forgia"><span data-lang="it" class="inline">Ferriera</span><span data-lang="en" class="inline">Forge</span></a></li>
+    <li><a href="#forgia"><span data-lang="it" class="inline">Forgia</span><span data-lang="en" class="inline">Forge</span></a></li>
     <li><a href="#attivita"><span data-lang="it" class="inline">Attività</span><span data-lang="en" class="inline">Activities</span></a></li>
     <li><a href="eventi.html" style="color:var(--gold);"><span data-lang="it" class="inline">Eventi</span><span data-lang="en" class="inline">Events</span></a></li>
+    <li><a href="#calcolatore"><span data-lang="it" class="inline">Prezzi</span><span data-lang="en" class="inline">Prices</span></a></li>
     <li><a href="#contatti"><span data-lang="it" class="inline">Contatti</span><span data-lang="en" class="inline">Contact</span></a></li>
   </ul>
   <button class="lang-switch" onclick="toggleLang()">EN / IT</button>
@@ -494,7 +491,7 @@
         <span data-lang="it" class="inline">Scopri gli appartamenti</span>
         <span data-lang="en" class="inline">Explore apartments</span>
       </a>
-      <a href="eventi.html" class="btn-outline">
+      <a href="#forgia" class="btn-outline">
         <span data-lang="it" class="inline">Spazio eventi</span>
         <span data-lang="en" class="inline">Event space</span>
       </a>
@@ -531,6 +528,10 @@
   <div class="intro-visual">
     <img src="intro%20visual.png" alt="Mulino Verde entrata" />
     <div class="intro-visual-inner"></div>
+    <div class="intro-badge">
+      <span data-lang="it" class="inline">Casa vacanze & spazio eventi</span>
+      <span data-lang="en" class="inline">Holiday home & event space</span>
+    </div>
   </div>
 </div>
 
@@ -711,7 +712,6 @@
   </p>
   <div class="act-grid reveal">
     <div class="act-card">
-      <img src="rafting.png" alt="Rafting sul Lima" class="act-img" />
       <div class="act-name">Rafting</div>
       <div class="act-desc">
         <span data-lang="it">Discesa del torrente Lima in gommone. Adatto a famiglie e gruppi, emozione garantita.</span>
@@ -719,10 +719,9 @@
       </div>
       <div class="act-price">€49</div>
       <div class="act-price-child"><span data-lang="it" class="inline">Bambini fino 12 anni: €39</span><span data-lang="en" class="inline">Children up to 12: €39</span></div>
-      <a href="https://www.firenzerafting.it/rafting-lima-firenze-rafting/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
+      <a href="https://www.firenzerafting.it/rafting-lima/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
     </div>
     <div class="act-card">
-      <img src="canyoning.png" alt="Canyoning" class="act-img" />
       <div class="act-name">Canyoning</div>
       <div class="act-desc">
         <span data-lang="it">Esplora gole e cascate tra le rocce della Toscana. Un'avventura nel cuore della natura selvaggia.</span>
@@ -730,10 +729,9 @@
       </div>
       <div class="act-price">€55</div>
       <div class="act-price-child"><span data-lang="it" class="inline">Bambini fino 12 anni: €45</span><span data-lang="en" class="inline">Children up to 12: €45</span></div>
-      <a href="https://www.firenzerafting.it/river-canyoning-river-trekking-firenze-rafting-natura/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
+      <a href="https://www.firenzerafting.it/canyoning-lima/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
     </div>
     <div class="act-card">
-      <img src="packrafting.png" alt="Packrafting" class="act-img" />
       <div class="act-name">Packrafting</div>
       <div class="act-desc">
         <span data-lang="it">Kayak gonfiabile ultraleggero per esplorare il fiume in modo autonomo. Per 16+ anni.</span>
@@ -741,7 +739,7 @@
       </div>
       <div class="act-price">€65</div>
       <div class="act-price-child"><span data-lang="it" class="inline">Non disponibile sotto i 16 anni</span><span data-lang="en" class="inline">Not available under 16</span></div>
-      <a href="https://www.firenzerafting.it/packrafting-lima-firenze-rafting/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
+      <a href="https://www.firenzerafting.it/packrafting-lima/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
     </div>
   </div>
 </section>
@@ -788,69 +786,243 @@
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
-<section id="contatti" class="contact">
-  <div class="contact-info reveal">
-    <span class="section-label">
-      <span data-lang="it" class="inline">Vieni a trovarci</span>
-      <span data-lang="en" class="inline">Get in touch</span>
+<!-- CALCULATOR -->
+<section id="calcolatore" style="background:#0e1810; padding:6rem 3rem;">
+  <div style="max-width:820px; margin:0 auto;">
+
+    <span style="font-size:0.68rem; letter-spacing:0.4em; text-transform:uppercase; color:#b8945a; display:block; margin-bottom:1rem;">
+      <span data-lang="it" class="inline">Calcola il tuo soggiorno</span>
+      <span data-lang="en" class="inline">Plan your stay</span>
     </span>
-    <h2 class="section-title">
-      <span data-lang="it">Parliamo del tuo soggiorno</span>
-      <span data-lang="en">Let's talk about your stay</span>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:300; margin-bottom:0.8rem; line-height:1.1;">
+      <span data-lang="it">Quanto costerebbe<br><em style="font-style:italic; color:#5a7052;">il tuo soggiorno?</em></span>
+      <span data-lang="en">How much would<br><em style="font-style:italic; color:#5a7052;">your stay cost?</em></span>
     </h2>
-    <p class="section-body" style="margin-bottom:2rem;">
-      <span data-lang="it">Che tu voglia organizzare una vacanza, un evento o semplicemente venire a vedere il posto, scrivici.</span>
-      <span data-lang="en">Whether you'd like to organise a holiday, an event, or simply come and see the place, get in touch.</span>
+    <p style="font-size:0.95rem; color:rgba(242,237,230,0.55); margin-bottom:3rem; max-width:520px; line-height:1.8;">
+      <span data-lang="it" class="inline">Seleziona l'appartamento, il numero di notti e gli ospiti. Nessuna piattaforma, nessuna commissione.</span>
+      <span data-lang="en" class="inline">Select an apartment, number of nights and guests. No platform fees, no commissions.</span>
     </p>
-    <div class="contact-item">
-      <div class="contact-item-label">Email</div>
-      <div class="contact-item-val"><a href="mailto:info@firenzerafting.it">info@firenzerafting.it</a></div>
+
+
+    <!-- TABS -->
+    <div style="display:flex; gap:0; margin-bottom:2.5rem; border-bottom:1px solid rgba(242,237,230,0.1);">
+      <button onclick="switchCalcTab('privato')" id="tab-privato"
+        style="padding:0.8rem 1.8rem; border:none; background:none; color:#b8945a; font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.15em; text-transform:uppercase; cursor:pointer; border-bottom:2px solid #b8945a; transition:all 0.25s;">
+        <span data-lang="it" class="inline">Privato</span><span data-lang="en" class="inline">Private</span>
+      </button>
+      <button onclick="switchCalcTab('commerciale')" id="tab-commerciale"
+        style="padding:0.8rem 1.8rem; border:none; background:none; color:rgba(242,237,230,0.4); font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.15em; text-transform:uppercase; cursor:pointer; border-bottom:2px solid transparent; transition:all 0.25s;">
+        <span data-lang="it" class="inline">Commerciale</span><span data-lang="en" class="inline">Commercial</span>
+      </button>
     </div>
-    <div class="contact-item">
-      <div class="contact-item-label">WhatsApp / Tel</div>
-      <div class="contact-item-val"><a href="tel:+393490921540">+39 349 092 1540</a></div>
+
+    <!-- SOGGIORNO PANEL -->
+    <div id="panel-soggiorno">
+
+      <!-- Apartment selector -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-bottom:2rem;">
+        <button class="apt-btn active" onclick="toggleApt('small',this)"
+          style="padding:1.4rem 1rem; background:#2d3d28; border:none; color:#f2ede6; cursor:pointer; transition:all 0.25s; text-align:center;">
+          <div style="font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.2em; color:#b8945a; margin-bottom:0.4rem;">SMALL</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem;">4 <span data-lang="it" class="inline">posti letto</span><span data-lang="en" class="inline">beds</span></div>
+          <div style="font-family:'Jost',sans-serif; font-size:0.68rem; color:rgba(242,237,230,0.45); margin-top:0.25rem;"><span data-lang="it" class="inline">max 6 ospiti</span><span data-lang="en" class="inline">max 6 guests</span></div>
+        </button>
+        <button class="apt-btn" onclick="toggleApt('medium',this)"
+          style="padding:1.4rem 1rem; background:#243320; border:none; color:#f2ede6; cursor:pointer; transition:all 0.25s; text-align:center;">
+          <div style="font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.2em; color:#b8945a; margin-bottom:0.4rem;">MEDIUM</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem;">4 <span data-lang="it" class="inline">posti letto</span><span data-lang="en" class="inline">beds</span></div>
+          <div style="font-family:'Jost',sans-serif; font-size:0.68rem; color:rgba(242,237,230,0.45); margin-top:0.25rem;"><span data-lang="it" class="inline">max 8 ospiti</span><span data-lang="en" class="inline">max 8 guests</span></div>
+        </button>
+        <button class="apt-btn" onclick="toggleApt('large',this)"
+          style="padding:1.4rem 1rem; background:#243320; border:none; color:#f2ede6; cursor:pointer; transition:all 0.25s; text-align:center;">
+          <div style="font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.2em; color:#b8945a; margin-bottom:0.4rem;">LARGE</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem;">9 <span data-lang="it" class="inline">posti letto</span><span data-lang="en" class="inline">beds</span></div>
+          <div style="font-family:'Jost',sans-serif; font-size:0.68rem; color:rgba(242,237,230,0.45); margin-top:0.25rem;"><span data-lang="it" class="inline">max 13 ospiti</span><span data-lang="en" class="inline">max 13 guests</span></div>
+        </button>
+        <button class="apt-btn" onclick="toggleApt('all',this)"
+          style="padding:1.4rem 1rem; background:#243320; border:none; color:#f2ede6; cursor:pointer; transition:all 0.25s; text-align:center;">
+          <div style="font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.2em; color:#b8945a; margin-bottom:0.4rem;"><span data-lang="it" class="inline">TUTTO IL MULINO</span><span data-lang="en" class="inline">ENTIRE MILL</span></div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem;">21 <span data-lang="it" class="inline">posti letto</span><span data-lang="en" class="inline">beds</span></div>
+          <div style="font-family:'Jost',sans-serif; font-size:0.68rem; color:rgba(242,237,230,0.45); margin-top:0.25rem;"><span data-lang="it" class="inline">max 27 ospiti</span><span data-lang="en" class="inline">max 27 guests</span></div>
+        </button>
+      </div>
+
+      <!-- Shared spaces notice -->
+      <div id="shared-notice" style="display:none; padding:0.75rem 1rem; background:rgba(61,92,90,0.2); border-left:2px solid #3d5c5a; margin-bottom:1.5rem; font-size:0.75rem; color:rgba(242,237,230,0.6); line-height:1.7;">
+        <span data-lang="it" class="inline">⚠ Gli spazi comuni (giardino, accesso al fiume, parcheggio) saranno condivisi con gli altri ospiti del mulino. Per uso esclusivo seleziona "Tutto il Mulino".</span>
+        <span data-lang="en" class="inline">⚠ Shared areas (garden, river access, parking) will be shared with other guests at the mill. For exclusive use, select "Entire Mill".</span>
+      </div>
+
+      <!-- Nights + guests -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem;">
+        <div>
+          <label style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); display:block; margin-bottom:0.6rem;">
+            <span data-lang="it" class="inline">Numero di notti</span><span data-lang="en" class="inline">Number of nights</span>
+          </label>
+          <div style="display:flex; align-items:center; gap:0;">
+            <button onclick="changeNights(-1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer; transition:all 0.25s;">−</button>
+            <input type="number" id="calc-nights" value="3" min="1" max="30" oninput="calcPrice()"
+              style="width:60px; height:42px; background:#1a2418; border:1px solid rgba(242,237,230,0.15); color:#f2ede6; text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.3rem; outline:none;" />
+            <button onclick="changeNights(1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer; transition:all 0.25s;">+</button>
+          </div>
+          <div id="nights-warning" style="font-size:0.7rem; color:#b8945a; margin-top:0.4rem; display:none;">
+            <span data-lang="it" class="inline">Min. 2 notti per questo appartamento</span>
+            <span data-lang="en" class="inline">Min. 2 nights for this apartment</span>
+          </div>
+        </div>
+        <div>
+          <label style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); display:block; margin-bottom:0.3rem;">
+            <span data-lang="it" class="inline">Ospiti oltre i posti standard</span><span data-lang="en" class="inline">Guests beyond standard beds</span>
+          </label>
+          <div style="font-size:0.7rem; color:rgba(242,237,230,0.35); margin-bottom:0.6rem; line-height:1.5;">
+            <span data-lang="it" class="inline">I prezzi base coprono 4/4/9 ospiti. Qui aggiungi le persone in più (divano letto, castello).</span>
+            <span data-lang="en" class="inline">Base prices cover 4/4/9 guests. Add extra people here (sofa bed, bunk bed).</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:0;">
+            <button onclick="changeExtra(-1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">−</button>
+            <input type="number" id="calc-extra" value="0" min="0" max="10" oninput="calcPrice()"
+              style="width:60px; height:42px; background:#1a2418; border:1px solid rgba(242,237,230,0.15); color:#f2ede6; text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.3rem; outline:none;" />
+            <button onclick="changeExtra(1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">+</button>
+          </div>
+          <div id="extra-hint" style="font-size:0.7rem; color:#b8945a; margin-top:0.4rem; display:none;">
+            <span data-lang="it" class="inline">+€22/persona/notte aggiunto al totale</span>
+            <span data-lang="en" class="inline">+€22/person/night added to total</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div id="calc-result" style="background:#2d3d28; padding:2rem 2.5rem; border-left:3px solid #b8945a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); margin-bottom:0.3rem;">
+            <span data-lang="it" class="inline">Stima totale</span><span data-lang="en" class="inline">Estimated total</span>
+          </div>
+          <div id="calc-price-display" style="font-family:'Cormorant Garamond',serif; font-size:3rem; color:#b8945a; line-height:1;">€495</div>
+          <div id="calc-breakdown" style="font-size:0.72rem; color:rgba(242,237,230,0.4); margin-top:0.4rem;">3 notti × €165</div>
+        </div>
+        <div style="text-align:right;">
+          <a href="#contatti" style="display:inline-block; background:#b8945a; color:#1a2418; padding:0.85rem 2rem; font-family:'Jost',sans-serif; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; margin-bottom:0.8rem; transition:background 0.3s;" onmouseover="this.style.background='#f2ede6'" onmouseout="this.style.background='#b8945a'">
+            <span data-lang="it" class="inline">Prenota →</span><span data-lang="en" class="inline">Book →</span>
+          </a>
+          <div style="font-size:0.68rem; color:rgba(242,237,230,0.35); line-height:1.7; max-width:200px;">
+            <span data-lang="it" class="inline">Nessuna piattaforma · nessuna commissione.<br>Rispondiamo entro 24 ore.</span>
+            <span data-lang="en" class="inline">No platform · no commission.<br>We reply within 24 hours.</span>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="contact-item">
-      <div class="contact-item-label">Instagram</div>
-      <div class="contact-item-val"><a href="https://instagram.com/mulinoverde.toscana" target="_blank">@mulinoverde.toscana</a></div>
+
+
+    <!-- COMMERCIALE PANEL -->
+    <div id="panel-commerciale" style="display:none;">
+
+      <div style="padding:1rem 1.2rem; background:rgba(184,148,90,0.08); border-left:2px solid #b8945a; margin-bottom:2rem; font-size:0.78rem; color:rgba(242,237,230,0.55); line-height:1.7;">
+        <span data-lang="it" class="inline">Tariffe per uso professionale: ritiri aziendali, team building, shooting, produzioni etc.</span>
+        <span data-lang="en" class="inline">Rates for professional use: corporate retreats, team building, photo shoots, productions etc.</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-bottom:2rem;">
+        <button class="capt-btn active" onclick="toggleCommApt('small',this)"
+          style="padding:1.4rem 1rem; background:#2d3d28; border:none; color:#f2ede6; cursor:pointer; transition:all 0.25s; text-align:center;">
+          <div style="font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.2em; color:#b8945a; margin-bottom:0.4rem;">SMALL</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem;">4 <span data-lang="it" class="inline">posti letto</span><span data-lang="en" class="inline">beds</span></div>
+          <div style="font-family:'Jost',sans-serif; font-size:0.68rem; color:rgba(242,237,230,0.45); margin-top:0.25rem;"><span data-lang="it" class="inline">max 6 ospiti</span><span data-lang="en" class="inline">max 6 guests</span></div>
+        </button>
+        <button class="capt-btn" onclick="toggleCommApt('medium',this)"
+          style="padding:1.4rem 1rem; background:#243320; border:none; color:#f2ede6; cursor:pointer; transition:all 0.25s; text-align:center;">
+          <div style="font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.2em; color:#b8945a; margin-bottom:0.4rem;">MEDIUM</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem;">4 <span data-lang="it" class="inline">posti letto</span><span data-lang="en" class="inline">beds</span></div>
+          <div style="font-family:'Jost',sans-serif; font-size:0.68rem; color:rgba(242,237,230,0.45); margin-top:0.25rem;"><span data-lang="it" class="inline">max 8 ospiti</span><span data-lang="en" class="inline">max 8 guests</span></div>
+        </button>
+        <button class="capt-btn" onclick="toggleCommApt('large',this)"
+          style="padding:1.4rem 1rem; background:#243320; border:none; color:#f2ede6; cursor:pointer; transition:all 0.25s; text-align:center;">
+          <div style="font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.2em; color:#b8945a; margin-bottom:0.4rem;">LARGE</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem;">9 <span data-lang="it" class="inline">posti letto</span><span data-lang="en" class="inline">beds</span></div>
+          <div style="font-family:'Jost',sans-serif; font-size:0.68rem; color:rgba(242,237,230,0.45); margin-top:0.25rem;"><span data-lang="it" class="inline">max 13 ospiti</span><span data-lang="en" class="inline">max 13 guests</span></div>
+        </button>
+        <button class="capt-btn" onclick="toggleCommApt('all',this)"
+          style="padding:1.4rem 1rem; background:#243320; border:none; color:#f2ede6; cursor:pointer; transition:all 0.25s; text-align:center;">
+          <div style="font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.2em; color:#b8945a; margin-bottom:0.4rem;"><span data-lang="it" class="inline">TUTTO IL MULINO</span><span data-lang="en" class="inline">ENTIRE MILL</span></div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem;">21 <span data-lang="it" class="inline">posti letto</span><span data-lang="en" class="inline">beds</span></div>
+          <div style="font-family:'Jost',sans-serif; font-size:0.68rem; color:rgba(242,237,230,0.45); margin-top:0.25rem;"><span data-lang="it" class="inline">max 27 ospiti</span><span data-lang="en" class="inline">max 27 guests</span></div>
+        </button>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <label style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); display:block; margin-bottom:0.6rem;">
+          <span data-lang="it" class="inline">Numero di notti</span><span data-lang="en" class="inline">Number of nights</span>
+        </label>
+        <div style="display:flex; align-items:center; gap:0;">
+          <button onclick="changeCommNights(-1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">−</button>
+          <input type="number" id="comm-nights" value="2" min="1" max="30" oninput="calcCommPrice()"
+            style="width:60px; height:42px; background:#1a2418; border:1px solid rgba(242,237,230,0.15); color:#f2ede6; text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.3rem; outline:none;" />
+          <button onclick="changeCommNights(1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">+</button>
+        </div>
+        <div id="comm-nights-warning" style="font-size:0.7rem; color:#b8945a; margin-top:0.4rem; display:none;">
+          <span data-lang="it" class="inline">Min. 2 notti per questo appartamento</span>
+          <span data-lang="en" class="inline">Min. 2 nights for this apartment</span>
+        </div>
+      </div>
+
+      <div style="background:#2d3d28; padding:2rem 2.5rem; border-left:3px solid #b8945a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); margin-bottom:0.3rem;">
+            <span data-lang="it" class="inline">Stima indicativa</span><span data-lang="en" class="inline">Indicative estimate</span>
+          </div>
+          <div id="comm-price-display" style="font-family:'Cormorant Garamond',serif; font-size:3rem; color:#b8945a; line-height:1;">€440</div>
+          <div id="comm-breakdown" style="font-size:0.72rem; color:rgba(242,237,230,0.4); margin-top:0.4rem;">2 notti × €220</div>
+        </div>
+        <div style="text-align:right;">
+          <a href="#contatti" style="display:inline-block; background:#b8945a; color:#1a2418; padding:0.85rem 2rem; font-family:'Jost',sans-serif; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; margin-bottom:0.8rem; transition:background 0.3s;" onmouseover="this.style.background='#f2ede6'" onmouseout="this.style.background='#b8945a'">
+            <span data-lang="it" class="inline">Prenota →</span><span data-lang="en" class="inline">Book →</span>
+          </a>
+          <div style="font-size:0.68rem; color:rgba(242,237,230,0.35); line-height:1.7; max-width:200px;">
+            <span data-lang="it" class="inline">Nessuna piattaforma · nessuna commissione.<br>Rispondiamo entro 24 ore.</span>
+            <span data-lang="en" class="inline">No platform · no commission.<br>We reply within 24 hours.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div style="margin-top:3rem; padding-top:2.5rem; border-top:1px solid rgba(242,237,230,0.08); text-align:center;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:300; margin-bottom:0.5rem;">
+        <span data-lang="it"><em style="font-style:italic; color:#5a7052;">Hai domande?</em> Scrivici.</span>
+        <span data-lang="en"><em style="font-style:italic; color:#5a7052;">Any questions?</em> Write to us.</span>
+      </p>
+      <a href="https://wa.me/391234567890" target="_blank"
+        style="display:inline-flex; align-items:center; gap:0.7rem; background:#b8945a; color:#1a2418; padding:1rem 3rem; font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.25em; text-transform:uppercase; text-decoration:none; transition:background 0.3s; margin-top:0.5rem;"
+        onmouseover="this.style.background='#f2ede6'" onmouseout="this.style.background='#b8945a'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-lang="it" class="inline">Scrivici →</span>
+        <span data-lang="en" class="inline">Write to us →</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contatti" style="background:#0e1810; padding:3rem; display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; align-items:center; border-top:1px solid rgba(242,237,230,0.06);">
+  <div style="display:flex; flex-wrap:wrap; gap:2.5rem; align-items:center;">
+    <div>
+      <div style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(242,237,230,0.35); margin-bottom:0.3rem;">Email</div>
+      <a href="mailto:info@firenzerafting.it" style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:#f2ede6; text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='#b8945a'" onmouseout="this.style.color='#f2ede6'">info@firenzerafting.it</a>
+    </div>
+    <div style="width:1px; height:40px; background:rgba(242,237,230,0.1);"></div>
+    <div>
+      <div style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(242,237,230,0.35); margin-bottom:0.3rem;">Instagram</div>
+      <a href="https://instagram.com/mulinoverde.toscana" target="_blank" style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:#f2ede6; text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='#b8945a'" onmouseout="this.style.color='#f2ede6'">@mulinoverde.toscana</a>
     </div>
   </div>
-  <div class="contact-form-side reveal">
-    <div class="contact-form-title">
-      <span data-lang="it">Invia una richiesta</span>
-      <span data-lang="en">Send a request</span>
-    </div>
-    <div class="contact-form-sub">
-      <span data-lang="it">Ti risponderemo entro 24 ore.</span>
-      <span data-lang="en">We'll reply within 24 hours.</span>
-    </div>
-    <div class="form-group">
-      <input type="text" placeholder="Nome / Name" />
-    </div>
-    <div class="form-group">
-      <input type="email" placeholder="Email" />
-    </div>
-    <div class="form-group">
-      <select>
-        <option value="" disabled selected>
-          <span data-lang="it">Tipo di richiesta</span>
-          <span data-lang="en">Request type</span>
-        </option>
-        <option value="vacanza">Casa vacanze / Holiday rental</option>
-        <option value="evento">Spazio eventi / Event space</option>
-        <option value="attivita">Attività fluviali / River activities</option>
-        <option value="altro">Altro / Other</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <textarea placeholder="Messaggio / Message"></textarea>
-    </div>
-    <button class="form-submit">
-      <span data-lang="it" class="inline">Invia richiesta</span>
-      <span data-lang="en" class="inline">Send request</span>
-    </button>
-  </div>
+  <a href="https://wa.me/391234567890" target="_blank"
+    style="display:inline-flex; align-items:center; gap:0.6rem; background:#b8945a; color:#1a2418; padding:0.9rem 2rem; font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; transition:background 0.3s;"
+    onmouseover="this.style.background='#f2ede6'" onmouseout="this.style.background='#b8945a'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span data-lang="it" class="inline">Scrivici</span><span data-lang="en" class="inline">Write to us</span>
+  </a>
 </section>
 
 <!-- EVENTI BANNER -->
@@ -873,6 +1045,228 @@
     <span data-lang="en" class="inline">See all events →</span>
   </a>
 </div>
+
+
+
+<script>
+// ---- CALCULATOR STATE ----
+var calcTab = 'privato';
+var selectedApts = new Set(['small']); // multi-select
+var calcNights = 3;
+var calcExtra = 0;
+
+// Price tables (private rates per night)
+var aptPrices = {
+  small:  { 1: 195, '2-3': 165, '4-6': 140, '7+': 115, min: 1 },
+  medium: { 1: 235, '2-3': 195, '4-6': 165, '7+': 135, min: 1 },
+  large:  { 1: 370, '2-3': 285, '4-6': 250, '7+': 215, min: 1 },
+  all:    { 1: 680, '2-3': 490, '4-6': 430, '7+': 370, min: 1 }
+};
+
+
+function getNightlyRate(apt, nights) {
+  var p = aptPrices[apt];
+  if (nights === 1) return p[1] || p['2-3'];
+  if (nights <= 3) return p['2-3'];
+  if (nights <= 6) return p['4-6'];
+  return p['7+'];
+}
+
+function calcPrice() {
+  calcNights = parseInt(document.getElementById('calc-nights').value) || 1;
+  calcExtra = parseInt(document.getElementById('calc-extra').value) || 0;
+
+  // If nothing selected, default back to small
+  if (selectedApts.size === 0) {
+    selectedApts.add('small');
+    document.querySelectorAll('.apt-btn').forEach(function(b) {
+      if (b.getAttribute('onclick').includes("'small'")) b.style.background = '#2d3d28';
+    });
+  }
+
+  // Min nights: 2 if any apt with min=2 is selected
+  var needsMin2 = false;
+  selectedApts.forEach(function(apt) { if (aptPrices[apt].min === 2) needsMin2 = true; });
+  var warn = document.getElementById('nights-warning');
+  if (needsMin2 && calcNights < 2) {
+    calcNights = 2;
+    document.getElementById('calc-nights').value = 2;
+    warn.style.display = 'block';
+  } else {
+    warn.style.display = needsMin2 ? 'block' : 'none';
+  }
+
+  // Show shared spaces notice if 1 or 2 apartments selected (not "all", not all 3)
+  var showShared = selectedApts.size > 0 && !selectedApts.has('all') && selectedApts.size < 3;
+  document.getElementById('shared-notice').style.display = showShared ? 'block' : 'none';
+
+  // Sum rates for selected apartments
+  var totalRate = 0;
+  var parts = [];
+  selectedApts.forEach(function(apt) {
+    var rate = getNightlyRate(apt, calcNights);
+    totalRate += rate;
+    parts.push(apt.charAt(0).toUpperCase() + apt.slice(1) + ' €' + rate);
+  });
+
+  var extraHint = document.getElementById('extra-hint');
+  if (extraHint) extraHint.style.display = calcExtra > 0 ? 'block' : 'none';
+  var extraCost = calcExtra * 22 * calcNights;
+  var total = totalRate * calcNights + extraCost;
+  document.getElementById('calc-price-display').textContent = '€' + total.toLocaleString('it-IT');
+  var breakdownText = parts.join(' + ') + '/notte × ' + calcNights;
+  if (calcExtra > 0) breakdownText += ' + €' + (calcExtra * 22) + ' extra';
+  document.getElementById('calc-breakdown').textContent = breakdownText;
+}
+
+function changeNights(delta) {
+  var el = document.getElementById('calc-nights');
+  el.value = Math.max(1, (parseInt(el.value)||1) + delta);
+  calcPrice();
+}
+function changeExtra(delta) {
+  var el = document.getElementById('calc-extra');
+  el.value = Math.max(0, (parseInt(el.value)||0) + delta);
+  calcPrice();
+}
+
+function toggleApt(apt, btn) {
+  // If clicking "all", deselect others and select only "all"
+  if (apt === 'all') {
+    selectedApts.clear();
+    selectedApts.add('all');
+    document.querySelectorAll('.apt-btn').forEach(function(b) { b.style.background = '#243320'; b.style.outline = 'none'; });
+    btn.style.background = '#2d3d28';
+    btn.style.outline = '2px solid #b8945a';
+    calcPrice();
+    return;
+  }
+  // If "all" was selected, clear it
+  if (selectedApts.has('all')) {
+    selectedApts.delete('all');
+    document.querySelectorAll('.apt-btn').forEach(function(b) { b.style.background = '#243320'; b.style.outline = 'none'; });
+  }
+  // Toggle this apartment
+  if (selectedApts.has(apt)) {
+    if (selectedApts.size === 1) return; // keep at least one
+    selectedApts.delete(apt);
+    btn.style.background = '#243320';
+    btn.style.outline = 'none';
+  } else {
+    selectedApts.add(apt);
+    btn.style.background = '#2d3d28';
+    btn.style.outline = '2px solid #b8945a';
+  }
+  calcPrice();
+}
+
+
+
+
+function switchCalcTab(tab) {
+  calcTab = tab;
+  var isPriv = tab === 'privato';
+  document.getElementById('panel-soggiorno').style.display = isPriv ? 'block' : 'none';
+  document.getElementById('panel-commerciale').style.display = isPriv ? 'none' : 'block';
+  var tp = document.getElementById('tab-privato');
+  var tc = document.getElementById('tab-commerciale');
+  tp.style.color = isPriv ? '#b8945a' : 'rgba(242,237,230,0.4)';
+  tp.style.borderBottom = isPriv ? '2px solid #b8945a' : '2px solid transparent';
+  tc.style.color = !isPriv ? '#b8945a' : 'rgba(242,237,230,0.4)';
+  tc.style.borderBottom = !isPriv ? '2px solid #b8945a' : '2px solid transparent';
+}
+
+// Commercial calculator — multi-select
+var selectedCommApts = new Set(['small']);
+var commNights = 2;
+
+var commPrices = {
+  small:  { 1: 265, '2-3': 220, '4+': 190, min: 1 },
+  medium: { 1: 320, '2-3': 265, '4+': 225, min: 1 },
+  large:  { 1: null,'2-3': 385, '4+': 340, min: 2 },
+  all:    { 1: null,'2-3': 660, '4+': 580, min: 2 }
+};
+
+function getCommRate(apt, nights) {
+  var p = commPrices[apt];
+  if (nights === 1) return p[1] || p['2-3'];
+  if (nights <= 3) return p['2-3'];
+  return p['4+'];
+}
+
+function calcCommPrice() {
+  commNights = parseInt(document.getElementById('comm-nights').value) || 1;
+
+  if (selectedCommApts.size === 0) {
+    selectedCommApts.add('small');
+    document.querySelectorAll('.capt-btn').forEach(function(b) {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'small'")) {
+        b.style.background = '#2d3d28'; b.style.outline = '2px solid #b8945a';
+      }
+    });
+  }
+
+  var needsMin2 = false;
+  selectedCommApts.forEach(function(apt) { if (commPrices[apt].min === 2) needsMin2 = true; });
+  var warn = document.getElementById('comm-nights-warning');
+  if (needsMin2 && commNights < 2) {
+    commNights = 2;
+    document.getElementById('comm-nights').value = 2;
+  }
+  warn.style.display = needsMin2 ? 'block' : 'none';
+
+  var totalRate = 0;
+  var parts = [];
+  selectedCommApts.forEach(function(apt) {
+    var rate = getCommRate(apt, commNights);
+    totalRate += rate;
+    parts.push(apt.charAt(0).toUpperCase() + apt.slice(1) + ' €' + rate);
+  });
+  var total = totalRate * commNights;
+  document.getElementById('comm-price-display').textContent = '€' + total.toLocaleString('it-IT');
+  document.getElementById('comm-breakdown').textContent = parts.join(' + ') + '/notte × ' + commNights;
+}
+
+function changeCommNights(delta) {
+  var el = document.getElementById('comm-nights');
+  el.value = Math.max(1, (parseInt(el.value)||1) + delta);
+  calcCommPrice();
+}
+
+function toggleCommApt(apt, btn) {
+  if (apt === 'all') {
+    selectedCommApts.clear();
+    selectedCommApts.add('all');
+    document.querySelectorAll('.capt-btn').forEach(function(b) { b.style.background = '#243320'; b.style.outline = 'none'; });
+    btn.style.background = '#2d3d28';
+    btn.style.outline = '2px solid #b8945a';
+    calcCommPrice();
+    return;
+  }
+  if (selectedCommApts.has('all')) {
+    selectedCommApts.delete('all');
+    document.querySelectorAll('.capt-btn').forEach(function(b) { b.style.background = '#243320'; b.style.outline = 'none'; });
+  }
+  if (selectedCommApts.has(apt)) {
+    if (selectedCommApts.size === 1) return;
+    selectedCommApts.delete(apt);
+    btn.style.background = '#243320';
+    btn.style.outline = 'none';
+  } else {
+    selectedCommApts.add(apt);
+    btn.style.background = '#2d3d28';
+    btn.style.outline = '2px solid #b8945a';
+  }
+  calcCommPrice();
+}
+
+// Init
+document.querySelectorAll('.apt-btn').forEach(function(b) { if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'small'")) { b.style.background = '#2d3d28'; b.style.outline = '2px solid #b8945a'; } });
+document.querySelectorAll('.capt-btn').forEach(function(b) { if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'small'")) { b.style.background = '#2d3d28'; b.style.outline = '2px solid #b8945a'; } });
+calcPrice();
+calcCommPrice();
+</script>
+
 
 <!-- FOOTER -->
 <footer>
