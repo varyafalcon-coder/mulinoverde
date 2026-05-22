@@ -263,9 +263,11 @@
     .activities { background: var(--moss); }
     .act-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .act-card {
-      padding: 2rem; border: 1px solid rgba(242,237,230,0.1);
+      border: 1px solid rgba(242,237,230,0.1);
       transition: all 0.3s; position: relative; overflow: hidden;
     }
+    .act-photo { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+    .act-body { padding: 2rem; }
     .act-card:hover { border-color: var(--gold); background: rgba(184,148,90,0.05); }
     .act-name {
       font-family: 'Cormorant Garamond', serif;
@@ -653,8 +655,8 @@
       <span data-lang="en">The ancient forge</span>
     </h2>
     <p class="section-body">
-      <span data-lang="it">Abbiamo scelto di non conservarla come luogo intoccabile, ma di usarla come spazio dove le persone possono venire, stare insieme e condividere la propria esperienza. Oggi ospita sessioni di yoga, degustazioni di vino, cene condivise, workshop d'arte. L'atmosfera del luogo rende ogni esperienza più profonda e immersiva.</span>
-      <span data-lang="en">We chose not to preserve it as an untouchable place, but to use it as a space where people can come, spend time together and share their experience. Today it hosts yoga sessions, wine tastings, shared dinners, art workshops. The atmosphere of the place makes every experience feel deeper and more immersive.</span>
+      <span data-lang="it">Oltre al mulino con le macine, lo spazio più interessante è la bottega del fabbro. Abbiamo scelto di non conservarla come luogo intoccabile, ma di usarla come spazio dove le persone possono venire, stare insieme e condividere la propria esperienza. Oggi ospita sessioni di yoga, degustazioni di vino, cene condivise, workshop d'arte.</span>
+      <span data-lang="en">Beyond the mill with its millstones, the most interesting space is the blacksmith's workshop. We chose not to preserve it as an untouchable place, but to use it as a space where people can come, spend time together and share their experience. Today it hosts yoga sessions, wine tastings, shared dinners, art workshops.</span>
     </p>
     <div class="forge-events">
       <div class="forge-event"><span class="forge-event-icon">🧘</span>Yoga & <span data-lang="it" class="inline">meditazione</span><span data-lang="en" class="inline">meditation</span></div>
@@ -689,6 +691,8 @@
   </p>
   <div class="act-grid reveal">
     <div class="act-card">
+      <img src="rafting.png" alt="Rafting" class="act-photo" />
+      <div class="act-body">
       <div class="act-name">Rafting</div>
       <div class="act-desc">
         <span data-lang="it">Discesa del torrente Lima in gommone. Adatto a famiglie e gruppi, emozione garantita.</span>
@@ -697,8 +701,11 @@
       <div class="act-price">€49</div>
       <div class="act-price-child"><span data-lang="it" class="inline">Bambini fino 12 anni: €39</span><span data-lang="en" class="inline">Children up to 12: €39</span></div>
       <a href="https://www.firenzerafting.it/rafting-lima/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
+      </div>
     </div>
     <div class="act-card">
+      <img src="canyoning.png" alt="Canyoning" class="act-photo" />
+      <div class="act-body">
       <div class="act-name">Canyoning</div>
       <div class="act-desc">
         <span data-lang="it">Esplora gole e cascate tra le rocce della Toscana. Un'avventura nel cuore della natura selvaggia.</span>
@@ -707,8 +714,11 @@
       <div class="act-price">€55</div>
       <div class="act-price-child"><span data-lang="it" class="inline">Bambini fino 12 anni: €45</span><span data-lang="en" class="inline">Children up to 12: €45</span></div>
       <a href="https://www.firenzerafting.it/canyoning-lima/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
+      </div>
     </div>
     <div class="act-card">
+      <img src="packrafting.png" alt="Packrafting" class="act-photo" />
+      <div class="act-body">
       <div class="act-name">Packrafting</div>
       <div class="act-desc">
         <span data-lang="it">Kayak gonfiabile ultraleggero per esplorare il fiume in modo autonomo. Per 16+ anni.</span>
@@ -717,6 +727,7 @@
       <div class="act-price">€65</div>
       <div class="act-price-child"><span data-lang="it" class="inline">Non disponibile sotto i 16 anni</span><span data-lang="en" class="inline">Not available under 16</span></div>
       <a href="https://www.firenzerafting.it/packrafting-lima/" target="_blank" class="act-link"><span data-lang="it" class="inline">Scopri e prenota →</span><span data-lang="en" class="inline">Info & booking →</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -895,8 +906,8 @@
     <div id="panel-commerciale" style="display:none;">
 
       <div style="padding:1rem 1.2rem; background:rgba(184,148,90,0.08); border-left:2px solid #b8945a; margin-bottom:2rem; font-size:0.78rem; color:rgba(242,237,230,0.55); line-height:1.7;">
-        <span data-lang="it" class="inline">Tariffe per uso professionale: ritiri aziendali, team building, shooting, produzioni etc.</span>
-        <span data-lang="en" class="inline">Rates for professional use: corporate retreats, team building, photo shoots, productions etc.</span>
+        <span data-lang="it" class="inline">Tariffe per uso professionale: ritiri aziendali, team building, shooting, produzioni etc. Disponibile anche per 1 notte.</span>
+        <span data-lang="en" class="inline">Rates for professional use: corporate retreats, team building, photo shoots, productions etc. Available from 1 night.</span>
       </div>
 
       <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-bottom:2rem;">
@@ -1012,10 +1023,7 @@
     <span data-lang="it">Yoga, vino, musica, spiritualità.<br><em style="font-style:italic; color:var(--sage);">Scopri gli eventi in programma.</em></span>
     <span data-lang="en">Yoga, wine, music, spirituality.<br><em style="font-style:italic; color:var(--sage);">Discover upcoming events.</em></span>
   </h2>
-  <p style="font-size:0.95rem; color:rgba(242,237,230,0.6); max-width:480px; margin:0 auto 2rem; line-height:1.8;">
-    <span data-lang="it">Dal cerchio di cacao nella forgia all'alba in kayak sul Lima. Iscriviti e ricevi solo gli eventi che ti interessano.</span>
-    <span data-lang="en">From a cacao circle in the forge to sunrise kayaking on the Lima. Subscribe and receive only the events that interest you.</span>
-  </p>
+
   <a href="eventi.html" style="display:inline-block; background:var(--gold); color:var(--forest); padding:0.9rem 2.5rem; font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; transition:background 0.3s;"
     onmouseover="this.style.background='#f2ede6'" onmouseout="this.style.background='#b8945a'">
     <span data-lang="it" class="inline">Vedi tutti gli eventi →</span>
@@ -1160,8 +1168,8 @@ var commNights = 2;
 var commPrices = {
   small:  { 1: 265, '2-3': 220, '4+': 190, min: 1 },
   medium: { 1: 320, '2-3': 265, '4+': 225, min: 1 },
-  large:  { 1: null,'2-3': 385, '4+': 340, min: 2 },
-  all:    { 1: null,'2-3': 660, '4+': 580, min: 2 }
+  large:  { 1: 500, '2-3': 385, '4+': 340, min: 1 },
+  all:    { 1: 900, '2-3': 660, '4+': 580, min: 1 }
 };
 
 function getCommRate(apt, nights) {
