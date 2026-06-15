@@ -937,6 +937,11 @@
         </button>
       </div>
 
+      <div id="comm-shared-notice" style="display:none; padding:0.75rem 1rem; background:rgba(61,92,90,0.2); border-left:2px solid #3d5c5a; margin-bottom:1.5rem; font-size:0.75rem; color:rgba(242,237,230,0.6); line-height:1.7;">
+        <span data-lang="it" class="inline">⚠ Gli spazi comuni (giardino, BBQ, forgia, parcheggio) saranno condivisi con gli altri ospiti del mulino. Per uso esclusivo seleziona "Tutto il Mulino".</span>
+        <span data-lang="en" class="inline">⚠ Shared areas (garden, BBQ, forge, parking) will be shared with other guests at the mill. For exclusive use, select "Entire Mill".</span>
+      </div>
+
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem;">
         <div>
           <label style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); display:block; margin-bottom:0.6rem;">
@@ -1226,6 +1231,9 @@ function calcCommPrice() {
   commExtra = parseInt((document.getElementById('comm-extra') || {value:'0'}).value) || 0;
   var commExtraHint = document.getElementById('comm-extra-hint');
   if (commExtraHint) commExtraHint.style.display = commExtra > 0 ? 'block' : 'none';
+
+  var commShared = document.getElementById('comm-shared-notice');
+  if (commShared) commShared.style.display = (selectedCommApts.size > 0 && !selectedCommApts.has('all') && selectedCommApts.size < 3) ? 'block' : 'none';
 
   var totalRate = 0;
   var parts = [];
