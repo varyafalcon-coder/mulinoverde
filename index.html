@@ -953,6 +953,26 @@
         </div>
       </div>
 
+      <div style="margin-bottom:2rem;">
+        <label style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); display:block; margin-bottom:0.3rem;">
+          <span data-lang="it" class="inline">Ospiti oltre i posti standard</span><span data-lang="en" class="inline">Guests beyond standard beds</span>
+        </label>
+        <div style="font-size:0.7rem; color:rgba(242,237,230,0.35); margin-bottom:0.6rem; line-height:1.5;">
+          <span data-lang="it" class="inline">I prezzi base coprono 4/4/9/17 ospiti. Qui aggiungi le persone in più (divano letto, letti a castello).</span>
+          <span data-lang="en" class="inline">Base prices cover 4/4/9/17 guests. Add extra people here (sofa bed, bunk beds).</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:0;">
+          <button onclick="changeCommExtra(-1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">−</button>
+          <input type="number" id="comm-extra" value="0" min="0" max="10" oninput="calcCommPrice()"
+            style="width:60px; height:42px; background:#1a2418; border:1px solid rgba(242,237,230,0.15); color:#f2ede6; text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.3rem; outline:none;" />
+          <button onclick="changeCommExtra(1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">+</button>
+        </div>
+        <div id="comm-extra-hint" style="font-size:0.7rem; color:#b8945a; margin-top:0.4rem; display:none;">
+          <span data-lang="it" class="inline">+€22/persona/notte aggiunto al totale</span>
+          <span data-lang="en" class="inline">+€22/person/night added to total</span>
+        </div>
+      </div>
+
       <div style="background:#2d3d28; padding:2rem 2.5rem; border-left:3px solid #b8945a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
         <div>
           <div style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); margin-bottom:0.3rem;">
@@ -1044,8 +1064,8 @@ var calcExtra = 0;
 var aptPrices = {
   small:  { 1: 140, '2-3': 120, '4-6': 105, '7+': 90, min: 1 },
   medium: { 1: 175, '2-3': 155, '4-6': 135, '7+': 115, min: 1 },
-  large:  { 1: 315, '2-3': 265, '4-6': 235, '7+': 200, min: 1 },
-  all:    { 1: 630, '2-3': 540, '4-6': 475, '7+': 410, min: 1 }
+  large:  { 1: 300, '2-3': 265, '4-6': 235, '7+': 200, min: 1 },
+  all:    { 1: 590, '2-3': 540, '4-6': 475, '7+': 410, min: 1 }
 };
 
 
@@ -1163,20 +1183,22 @@ function switchCalcTab(tab) {
 
 // Commercial calculator — multi-select
 var selectedCommApts = new Set(['small']);
-var commNights = 2;
+var commNights = 1;
+var commExtra = 0;
 
 var commPrices = {
-  small:  { 1: 325, '2-3': 230, '4+': 200, min: 1 },
-  medium: { 1: 325, '2-3': 230, '4+': 200, min: 1 },
-  large:  { 1: 480, '2-3': 460, '4+': 405, min: 1 },
-  all:    { 1: 780, '2-3': 750, '4+': 660, min: 1 }
+  small:  { 1: 175, '2-3': 155, '4-6': 140, '7+': 125, min: 1 },
+  medium: { 1: 210, '2-3': 190, '4-6': 170, '7+': 150, min: 1 },
+  large:  { 1: 335, '2-3': 300, '4-6': 270, '7+': 235, min: 1 },
+  all:    { 1: 625, '2-3': 575, '4-6': 510, '7+': 445, min: 1 }
 };
 
 function getCommRate(apt, nights) {
   var p = commPrices[apt];
-  if (nights === 1) return p[1] || p['2-3'];
+  if (nights === 1) return p[1];
   if (nights <= 3) return p['2-3'];
-  return p['4+'];
+  if (nights <= 6) return p['4-6'];
+  return p['7+'];
 }
 
 function calcCommPrice() {
@@ -1200,6 +1222,10 @@ function calcCommPrice() {
   }
   warn.style.display = needsMin2 ? 'block' : 'none';
 
+  commExtra = parseInt((document.getElementById('comm-extra') || {value:'0'}).value) || 0;
+  var commExtraHint = document.getElementById('comm-extra-hint');
+  if (commExtraHint) commExtraHint.style.display = commExtra > 0 ? 'block' : 'none';
+
   var totalRate = 0;
   var parts = [];
   selectedCommApts.forEach(function(apt) {
@@ -1207,14 +1233,23 @@ function calcCommPrice() {
     totalRate += rate;
     parts.push(apt.charAt(0).toUpperCase() + apt.slice(1) + ' €' + rate);
   });
-  var total = totalRate * commNights;
+  var extraCost = commExtra * 22 * commNights;
+  var total = totalRate * commNights + extraCost;
   document.getElementById('comm-price-display').textContent = '€' + total.toLocaleString('it-IT');
-  document.getElementById('comm-breakdown').textContent = parts.join(' + ') + '/notte × ' + commNights;
+  var breakdown = parts.join(' + ') + '/notte × ' + commNights;
+  if (commExtra > 0) breakdown += ' + €' + (commExtra * 22) + ' extra';
+  document.getElementById('comm-breakdown').textContent = breakdown;
 }
 
 function changeCommNights(delta) {
   var el = document.getElementById('comm-nights');
   el.value = Math.max(1, (parseInt(el.value)||1) + delta);
+  calcCommPrice();
+}
+
+function changeCommExtra(delta) {
+  var el = document.getElementById('comm-extra');
+  el.value = Math.max(0, (parseInt(el.value)||0) + delta);
   calcCommPrice();
 }
 
