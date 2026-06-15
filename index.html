@@ -937,39 +937,40 @@
         </button>
       </div>
 
-      <div style="margin-bottom:2rem;">
-        <label style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); display:block; margin-bottom:0.6rem;">
-          <span data-lang="it" class="inline">Numero di notti</span><span data-lang="en" class="inline">Number of nights</span>
-        </label>
-        <div style="display:flex; align-items:center; gap:0;">
-          <button onclick="changeCommNights(-1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">−</button>
-          <input type="number" id="comm-nights" value="2" min="1" max="30" oninput="calcCommPrice()"
-            style="width:60px; height:42px; background:#1a2418; border:1px solid rgba(242,237,230,0.15); color:#f2ede6; text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.3rem; outline:none;" />
-          <button onclick="changeCommNights(1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">+</button>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem;">
+        <div>
+          <label style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); display:block; margin-bottom:0.6rem;">
+            <span data-lang="it" class="inline">Numero di notti</span><span data-lang="en" class="inline">Number of nights</span>
+          </label>
+          <div style="display:flex; align-items:center; gap:0;">
+            <button onclick="changeCommNights(-1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">−</button>
+            <input type="number" id="comm-nights" value="1" min="1" max="30" oninput="calcCommPrice()"
+              style="width:60px; height:42px; background:#1a2418; border:1px solid rgba(242,237,230,0.15); color:#f2ede6; text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.3rem; outline:none;" />
+            <button onclick="changeCommNights(1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">+</button>
+          </div>
+          <div id="comm-nights-warning" style="font-size:0.7rem; color:#b8945a; margin-top:0.4rem; display:none;">
+            <span data-lang="it" class="inline">Min. 2 notti per questo appartamento</span>
+            <span data-lang="en" class="inline">Min. 2 nights for this apartment</span>
+          </div>
         </div>
-        <div id="comm-nights-warning" style="font-size:0.7rem; color:#b8945a; margin-top:0.4rem; display:none;">
-          <span data-lang="it" class="inline">Min. 2 notti per questo appartamento</span>
-          <span data-lang="en" class="inline">Min. 2 nights for this apartment</span>
-        </div>
-      </div>
-
-      <div style="margin-bottom:2rem;">
-        <label style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); display:block; margin-bottom:0.3rem;">
-          <span data-lang="it" class="inline">Ospiti oltre i posti standard</span><span data-lang="en" class="inline">Guests beyond standard beds</span>
-        </label>
-        <div style="font-size:0.7rem; color:rgba(242,237,230,0.35); margin-bottom:0.6rem; line-height:1.5;">
-          <span data-lang="it" class="inline">I prezzi base coprono 4/4/9/17 ospiti. Qui aggiungi le persone in più (divano letto, letti a castello).</span>
-          <span data-lang="en" class="inline">Base prices cover 4/4/9/17 guests. Add extra people here (sofa bed, bunk beds).</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:0;">
-          <button onclick="changeCommExtra(-1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">−</button>
-          <input type="number" id="comm-extra" value="0" min="0" max="10" oninput="calcCommPrice()"
-            style="width:60px; height:42px; background:#1a2418; border:1px solid rgba(242,237,230,0.15); color:#f2ede6; text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.3rem; outline:none;" />
-          <button onclick="changeCommExtra(1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">+</button>
-        </div>
-        <div id="comm-extra-hint" style="font-size:0.7rem; color:#b8945a; margin-top:0.4rem; display:none;">
-          <span data-lang="it" class="inline">+€22/persona/notte aggiunto al totale</span>
-          <span data-lang="en" class="inline">+€22/person/night added to total</span>
+        <div>
+          <label style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,237,230,0.4); display:block; margin-bottom:0.3rem;">
+            <span data-lang="it" class="inline">Ospiti oltre i posti standard</span><span data-lang="en" class="inline">Guests beyond standard beds</span>
+          </label>
+          <div style="font-size:0.7rem; color:rgba(242,237,230,0.35); margin-bottom:0.6rem; line-height:1.5;">
+            <span data-lang="it" class="inline">I prezzi base coprono 4/4/9/17 ospiti. Qui aggiungi le persone in più (divano letto, letti a castello).</span>
+            <span data-lang="en" class="inline">Base prices cover 4/4/9/17 guests. Add extra people here (sofa bed, bunk beds).</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:0;">
+            <button onclick="changeCommExtra(-1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">−</button>
+            <input type="number" id="comm-extra" value="0" min="0" max="10" oninput="calcCommPrice()"
+              style="width:60px; height:42px; background:#1a2418; border:1px solid rgba(242,237,230,0.15); color:#f2ede6; text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.3rem; outline:none;" />
+            <button onclick="changeCommExtra(1)" style="width:42px; height:42px; background:#2d3d28; border:1px solid rgba(242,237,230,0.1); color:#f2ede6; font-size:1.2rem; cursor:pointer;">+</button>
+          </div>
+          <div id="comm-extra-hint" style="font-size:0.7rem; color:#b8945a; margin-top:0.4rem; display:none;">
+            <span data-lang="it" class="inline">+€22/persona/notte aggiunto al totale</span>
+            <span data-lang="en" class="inline">+€22/person/night added to total</span>
+          </div>
         </div>
       </div>
 
